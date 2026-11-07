@@ -3,6 +3,7 @@ import { Header } from './components/layout/Header';
 import { Hero } from './components/hero/Hero';
 import { ProblemSection } from './components/sections/ProblemSection';
 import { ValueProposalSection } from './components/sections/ValueProposalSection';
+import { ArchitectureSection } from './components/sections/ArchitectureSection';
 import { EarlyAccessModal } from './components/ui/EarlyAccessModal';
 
 export const App: FC = () => {
@@ -23,6 +24,9 @@ export const App: FC = () => {
 
         {/* ETAPA 04: A Proposta (Fluxo em 5 Etapas) */}
         <ValueProposalSection />
+
+        {/* ETAPA 05: Diferenciais e Arquitetura Profunda */}
+        <ArchitectureSection />
       </main>
 
       {/* Modal Acessível de Early Access / Demonstração Técnica */}
