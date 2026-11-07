@@ -1,6 +1,8 @@
 import { useState, type FC } from 'react';
 import { Header } from './components/layout/Header';
 import { Hero } from './components/hero/Hero';
+import { ProblemSection } from './components/sections/ProblemSection';
+import { ValueProposalSection } from './components/sections/ValueProposalSection';
 import { EarlyAccessModal } from './components/ui/EarlyAccessModal';
 
 export const App: FC = () => {
@@ -15,6 +17,12 @@ export const App: FC = () => {
       <main>
         {/* ETAPA 03: Hero Section com Console Interativo */}
         <Hero onOpenEarlyAccess={() => setModalOpen(true)} />
+
+        {/* ETAPA 04: O Problema (Fragmentação Operacional) */}
+        <ProblemSection />
+
+        {/* ETAPA 04: A Proposta (Fluxo em 5 Etapas) */}
+        <ValueProposalSection />
       </main>
 
       {/* Modal Acessível de Early Access / Demonstração Técnica */}
