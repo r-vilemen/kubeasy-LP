@@ -9,30 +9,27 @@ export interface ConsoleWindowProps {
 }
 
 export const ConsoleWindow: FC<ConsoleWindowProps> = ({
-  title = 'kubeasy-incident-investigation',
+  title = 'cluster/production/investigation',
   badge,
   children,
   className = '',
   headerRight,
 }) => {
   return (
-    <div className={`rounded-xl border border-white/10 bg-surface-subtle shadow-console overflow-hidden ${className}`}>
-      {/* Console Header */}
-      <div className="flex items-center justify-between px-4 py-2.5 bg-surface-elevated/70 border-b border-white/5 select-none">
-        <div className="flex items-center gap-3">
-          {/* Mac/Linux Style Window Controls */}
-          <div className="flex items-center gap-1.5" aria-hidden="true">
-            <span className="w-2.5 h-2.5 rounded-full bg-status-error/80" />
-            <span className="w-2.5 h-2.5 rounded-full bg-status-warn/80" />
-            <span className="w-2.5 h-2.5 rounded-full bg-status-ok/80" />
-          </div>
-          <span className="text-xs font-mono text-text-secondary truncate">{title}</span>
+    <div className={`rounded-lg border border-border-subtle bg-surface-subtle shadow-console overflow-hidden ${className}`}>
+      {/* Console Header de Engenharia: sem bolinhas decorativas de IA */}
+      <div className="flex flex-wrap items-center justify-between px-4 py-2.5 bg-surface-elevated border-b border-border-subtle text-xs font-mono gap-2">
+        <div className="flex items-center gap-2.5 text-text-secondary">
+          <span className="w-2 h-2 rounded-sm bg-brand-sky/80" />
+          <span className="text-text-primary font-semibold">{title}</span>
+          {badge}
         </div>
 
-        <div className="flex items-center gap-2">
-          {badge}
-          {headerRight}
-        </div>
+        {headerRight && (
+          <div className="flex items-center gap-2">
+            {headerRight}
+          </div>
+        )}
       </div>
 
       {/* Console Content */}

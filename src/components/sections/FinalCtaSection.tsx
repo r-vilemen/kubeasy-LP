@@ -1,6 +1,5 @@
 import type { FC } from 'react';
 import { Button } from '../ui/Button';
-import { Badge } from '../ui/Badge';
 import { Terminal, Shield, ArrowRight } from 'lucide-react';
 
 export interface FinalCtaProps {
@@ -9,32 +8,32 @@ export interface FinalCtaProps {
 
 export const FinalCtaSection: FC<FinalCtaProps> = ({ onOpenEarlyAccess }) => {
   return (
-    <section id="acesso" className="py-20 md:py-28 bg-canvas border-t border-white/5 relative overflow-hidden">
-      <div className="absolute inset-0 bg-radial-vignette opacity-70 pointer-events-none" />
+    <section id="acesso" className="py-20 md:py-28 bg-canvas border-b border-border-subtle">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <div className="text-xs font-mono text-brand-sky uppercase font-semibold">
+          Acesso Antecipado & Sessões de Arquitetura
+        </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
-        <Badge variant="indigo" dot>PROGRAMA DE EARLY ACCESS TÉCNICO</Badge>
-
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-primary leading-tight">
-          Traga previsibilidade e rigor de engenharia para a operação do seu cluster
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text-primary leading-tight">
+          Traga previsibilidade e rigor para a operação dos seus clusters
         </h2>
 
         <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
-          Participe do programa de acesso antecipado e descubra como o Kubeasy reduz o tempo de investigação e aumenta a segurança dos seus deploys Kubernetes.
+          Inscreva sua equipe técnica para avaliar o Kubeasy em sessões direcionadas de arquitetura, focadas na redução de MTTR e governança GitOps.
         </p>
 
-        <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Button
             variant="primary"
             size="lg"
             onClick={onOpenEarlyAccess}
-            icon={<Terminal className="w-4 h-4 text-brand-cyan" />}
-            className="w-full sm:w-auto px-8 py-3.5 font-bold shadow-glow-indigo text-base"
+            icon={<Terminal className="w-4 h-4 text-brand-sky" />}
+            className="w-full sm:w-auto px-7 py-3"
           >
             Solicitar Acesso Antecipado
           </Button>
           <Button
-            variant="outline"
+            variant="secondary"
             size="lg"
             onClick={() => {
               const el = document.getElementById('cenarios');
@@ -42,25 +41,19 @@ export const FinalCtaSection: FC<FinalCtaProps> = ({ onOpenEarlyAccess }) => {
             }}
             icon={<ArrowRight className="w-4 h-4" />}
             iconPosition="right"
-            className="w-full sm:w-auto px-6 py-3.5"
+            className="w-full sm:w-auto px-5 py-3"
           >
-            Rever Cenários Práticos
+            Rever Cenários de Investigação
           </Button>
         </div>
 
-        <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-text-muted">
-          <div className="flex items-center gap-2">
-            <Shield className="w-3.5 h-3.5 text-status-ok" />
-            <span>Sem cartão de crédito</span>
+        <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-text-muted">
+          <div className="flex items-center gap-1.5">
+            <Shield className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Sessões conduzidas diretamente por engenheiros de sistemas</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan" />
-            <span>Briefing direto com engenheiros fundadores</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-status-gov" />
-            <span>Vagas restritas por coorte técnica</span>
-          </div>
+          <span>·</span>
+          <div>Zero cartão de crédito ou compromisso financeiro</div>
         </div>
       </div>
     </section>

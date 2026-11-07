@@ -1,13 +1,22 @@
 # DECISÕES DE DESIGN E IDENTIDADE VISUAL — KUBEASY
 
-## 1. POSICIONAMENTO E CONCEITO VISUAL
+## 1. RUPTURA COM O "AI LOOK" (DIRETRIZES ANTI-CLICHÊ)
 
-O **Kubeasy** é uma plataforma técnica B2B voltada para engenheiros DevOps, SREs, arquitetos de plataforma e líderes técnicos lidando com a complexidade de Kubernetes e microsserviços.
+Para garantir que a página tenha personalidade autêntica de produto B2B de engenharia e zero aparência de template de IA, eliminamos radicalmente:
+- ❌ **Sem falsos glows e manchas de gradiente borradas** (`blur-2xl`, `shadow-glow-indigo`, radiais roxos genéricos).
+- ❌ **Sem janelinhas falsas com as 3 bolinhas macOS** (vermelha, amarela, verde) em todo componente.
+- ❌ **Sem eyebrows em ALL CAPS com bolinhas coloridas** (`dot`) no topo de cada título da página.
+- ❌ **Sem grids repetitivos de cartões idênticos** cortados com o mesmo border-radius e ícones em caixinhas quadradas.
+- ❌ **Sem jargões vazios ou títulos inflados**.
 
-A direção visual deve comunicar:
-- **Precisão Cirúrgica e Engenharia:** A interface deve remeter a instrumentos de missão crítica (cockpits modernos, terminais de observabilidade de alto padrão, consoles de controle de rede).
-- **Transparência e Determinismo:** A inteligência artificial não é tratada como "mágica", mas como uma federação de agentes que operam com evidências rastreáveis (TreeStore) e supervisão humana obrigatória.
-- **Autoridade e Sofisticação Sem Clichês:** Evitar fundos pasteis/creme, ilustrações 3D abstratas de IA, gradientes caóticos e botões idênticos repetitivos.
+## 2. NOVA DIREÇÃO: ENGENHARIA DE PRECISÃO & BLUEPRINT EDITORIAL
+
+Inspirada nas melhores referências de ferramentas de infraestrutura e sistemas de missão crítica (HashiCorp, Datadog Incident, Tailscale, Cockroach Labs, Grafana):
+- **Superfícies de Engenharia:** Fundo escuro neutro e denso (`#0B0E14`), com linhas de demarcação técnica de 1px sólidas e limpas (`#1E2638`).
+- **Arquitetura Visual Esquemática (Blueprint / DAG):** Nós conectados por conectores vetoriais SVG reais, com hierarquia clara entre o plano de controle de incidentes, o Grafo de Topologia e a árvore TreeStore.
+- **Console Realista de Resposta a Incidentes:** Painel de engenharia no formato que um SRE utiliza em um War Room: timeline com timestamps UTC precisos, diffs reais de YAML (`values.yaml`), spans de latência de microserviços e checkpoints de autenticação WebAuthn/FIDO2.
+- **Tipografia:** `Inter` com tracking balanceado e pesos contrastantes + `JetBrains Mono` em blocos de telemetria, traces e comandos.
+- **Tom de Voz Direto e Humano:** Escrita técnica de quem vive a rotina de produção de Kubernetes, sem rodeios publicitários.
 
 ---
 

@@ -16,20 +16,20 @@ export const Button: FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-150 rounded-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none';
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition-colors rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none text-xs sm:text-sm';
   
   const sizeStyles = {
-    sm: 'text-xs px-3 py-1.5 gap-1.5',
-    md: 'text-sm px-4 py-2 gap-2',
-    lg: 'text-base px-5 py-2.5 gap-2.5',
+    sm: 'px-2.5 py-1.5 gap-1.5 font-mono',
+    md: 'px-3.5 py-2 gap-2',
+    lg: 'px-5 py-2.5 gap-2 text-sm sm:text-base font-semibold',
   };
 
   const variantStyles = {
-    primary: 'bg-brand-indigo hover:bg-brand-indigo/90 text-white shadow-sm hover:shadow-glow-indigo active:scale-[0.98]',
-    secondary: 'bg-surface-elevated hover:bg-surface-overlay text-text-primary border border-white/10 active:scale-[0.98]',
-    outline: 'bg-transparent hover:bg-white/5 text-text-primary border border-white/20 active:scale-[0.98]',
-    ghost: 'bg-transparent hover:bg-white/5 text-text-secondary hover:text-text-primary',
-    danger: 'bg-status-error/20 hover:bg-status-error/30 text-status-error border border-status-error/30 active:scale-[0.98]',
+    primary: 'bg-brand-indigo hover:bg-brand-indigo/90 text-white border border-indigo-400/30',
+    secondary: 'bg-surface-elevated hover:bg-surface-overlay text-text-primary border border-border-subtle',
+    outline: 'bg-transparent hover:bg-surface-elevated text-text-primary border border-border-medium',
+    ghost: 'bg-transparent hover:bg-surface-elevated text-text-secondary hover:text-text-primary',
+    danger: 'bg-status-error/20 hover:bg-status-error/30 text-rose-300 border border-status-error/40',
   };
 
   return (

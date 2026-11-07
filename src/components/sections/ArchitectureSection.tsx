@@ -2,150 +2,128 @@ import { useState, type FC } from 'react';
 import { Badge } from '../ui/Badge';
 import { ConsoleWindow } from '../ui/ConsoleWindow';
 import {
-  GitFork,
   Cpu,
-  Bot,
-  ShieldCheck,
-  CheckCircle2,
-  FileCode,
-  Network,
-  Fingerprint,
-  Layers,
-  Search,
-  Activity,
-  GitPullRequest
+  Fingerprint
 } from 'lucide-react';
 
 export const ArchitectureSection: FC = () => {
   const [activeTab, setActiveTab] = useState<'treestore' | 'multiagent' | 'graph' | 'governance'>('treestore');
 
   return (
-    <section id="diferenciais" className="py-20 md:py-28 bg-canvas border-t border-white/5 relative">
+    <section id="diferenciais" className="py-20 md:py-28 bg-canvas border-b border-border-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <Badge variant="indigo" dot>ARQUITETURA & DIFERENCIAIS TÉCNICOS</Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">
-            Engenharia construída para ambientes de missão crítica
+        <div className="max-w-3xl mb-12 space-y-3">
+          <div className="text-xs font-mono text-purple-400 uppercase font-semibold">
+            Especificação de Engenharia
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-text-primary">
+            Arquitetura interna e diferenciais técnicos
           </h2>
-          <p className="text-base text-text-secondary leading-relaxed">
-            Sem caixas-pretas ou promessas mágicas. O Kubeasy combina algoritmos determinísticos de correlação, agentes especializados e controle humano em cada decisão.
+          <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
+            Sem modelos genéricos ou "mágica de IA". O Kubeasy opera com agentes desacoplados, estruturas imutáveis de grafos e rastreabilidade determinística.
           </p>
 
-          {/* Feature Selector Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
+          {/* Subnav Tabs de Arquitetura */}
+          <div className="flex flex-wrap items-center gap-2 pt-3">
             <button
               onClick={() => setActiveTab('treestore')}
-              className={`px-4 py-2 rounded-lg text-xs font-mono font-medium transition-all ${
+              className={`px-3 py-1.5 rounded text-xs font-mono transition-colors ${
                 activeTab === 'treestore'
-                  ? 'bg-brand-indigo text-white shadow-glow-indigo/50'
-                  : 'bg-surface-elevated text-text-secondary hover:text-text-primary border border-white/5'
+                  ? 'bg-surface-elevated text-text-primary border border-border-medium'
+                  : 'text-text-muted hover:text-text-secondary'
               }`}
             >
-              1. TreeStore Determinístico
+              TreeStore (Árvore Imutável)
             </button>
             <button
               onClick={() => setActiveTab('multiagent')}
-              className={`px-4 py-2 rounded-lg text-xs font-mono font-medium transition-all ${
+              className={`px-3 py-1.5 rounded text-xs font-mono transition-colors ${
                 activeTab === 'multiagent'
-                  ? 'bg-brand-indigo text-white shadow-glow-indigo/50'
-                  : 'bg-surface-elevated text-text-secondary hover:text-text-primary border border-white/5'
+                  ? 'bg-surface-elevated text-text-primary border border-border-medium'
+                  : 'text-text-muted hover:text-text-secondary'
               }`}
             >
-              2. Runtime Multiagente
+              Runtime Multiagente
             </button>
             <button
               onClick={() => setActiveTab('graph')}
-              className={`px-4 py-2 rounded-lg text-xs font-mono font-medium transition-all ${
+              className={`px-3 py-1.5 rounded text-xs font-mono transition-colors ${
                 activeTab === 'graph'
-                  ? 'bg-brand-indigo text-white shadow-glow-indigo/50'
-                  : 'bg-surface-elevated text-text-secondary hover:text-text-primary border border-white/5'
+                  ? 'bg-surface-elevated text-text-primary border border-border-medium'
+                  : 'text-text-muted hover:text-text-secondary'
               }`}
             >
-              3. Grafo Unificado & Copiloto
+              Grafo Topológico & Copiloto
             </button>
             <button
               onClick={() => setActiveTab('governance')}
-              className={`px-4 py-2 rounded-lg text-xs font-mono font-medium transition-all ${
+              className={`px-3 py-1.5 rounded text-xs font-mono transition-colors ${
                 activeTab === 'governance'
-                  ? 'bg-brand-indigo text-white shadow-glow-indigo/50'
-                  : 'bg-surface-elevated text-text-secondary hover:text-text-primary border border-white/5'
+                  ? 'bg-surface-elevated text-text-primary border border-border-medium'
+                  : 'text-text-muted hover:text-text-secondary'
               }`}
             >
-              4. Governança & GitOps
+              Governança & GitOps
             </button>
           </div>
         </div>
 
-        {/* Dynamic Architecture Display */}
-        <div className="bg-surface-subtle border border-white/10 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-console">
+        {/* Dynamic Architectural Deep Dive */}
+        <div className="rounded-lg border border-border-subtle bg-surface-subtle p-6 sm:p-8">
           {/* TAB 1: TREESTORE */}
           {activeTab === 'treestore' && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               <div className="lg:col-span-5 space-y-4">
-                <Badge variant="indigo">ESTRUTURA DE DADOS IMUTÁVEL</Badge>
-                <h3 className="text-2xl font-bold text-text-primary">
-                  TreeStore: Investigação estruturada em árvore
+                <div className="text-xs font-mono text-brand-sky font-semibold">
+                  ESTRUTURA DE DADOS DETERMINÍSTICA
+                </div>
+                <h3 className="text-xl font-bold text-text-primary">
+                  TreeStore: Árvore imutável de evidências
                 </h3>
                 <p className="text-sm text-text-secondary leading-relaxed">
-                  Em vez de conversas caóticas em chats ou diagnósticos que se perdem no histórico, o TreeStore organiza a investigação como uma árvore formal de hipóteses e evidências.
+                  Em incidentes complexos, conclusões precipitadas geram downtime prolongado. O TreeStore organiza o diagnóstico como uma árvore formal de hipóteses validadas ou refutadas por dados objetivos.
                 </p>
 
-                <ul className="space-y-3 text-xs font-mono text-text-secondary pt-2">
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-status-ok shrink-0 mt-0.5" />
-                    <span><strong>Rastreabilidade Total:</strong> Cada nó registra a fonte de dados (métrica, log, evento K8s) e o timestamp exato.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-status-ok shrink-0 mt-0.5" />
-                    <span><strong>Hipóteses Refutadas:</strong> Caminhos investigados que não explicam o problema são preservados para o pós-morte.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-status-ok shrink-0 mt-0.5" />
-                    <span><strong>Exportação Automática:</strong> Gere relatórios de post-mortem completos em Markdown com um clique.</span>
-                  </li>
-                </ul>
+                <div className="space-y-3 text-xs font-mono text-text-secondary pt-2">
+                  <div className="p-3 bg-surface-elevated rounded border border-border-subtle space-y-1">
+                    <strong className="text-text-primary block">Rastreabilidade Determinística:</strong>
+                    <span className="text-text-muted">Cada ramo registra a métrica, log ou trace que comprova ou refuta uma suposição.</span>
+                  </div>
+                  <div className="p-3 bg-surface-elevated rounded border border-border-subtle space-y-1">
+                    <strong className="text-text-primary block">Preservação de Hipóteses Descartadas:</strong>
+                    <span className="text-text-muted">Garante que a equipe não repita testes inúteis e alimenta o pós-morte imediato.</span>
+                  </div>
+                </div>
               </div>
 
               <div className="lg:col-span-7">
-                <ConsoleWindow title="treestore-graph-viewer --incident=KB-4028">
-                  <div className="space-y-3 font-mono text-xs">
-                    {/* Nó Raiz */}
-                    <div className="p-3 bg-surface-elevated rounded border border-white/10">
-                      <div className="flex items-center justify-between text-brand-cyan mb-1 font-semibold">
-                        <span className="flex items-center gap-1.5">
-                          <GitFork className="w-3.5 h-3.5" />
-                          ROOT NODE: Anomalia de Latência P99 [checkout-service]
-                        </span>
-                        <Badge variant="neutral" size="sm">Telemetria Istio</Badge>
+                <ConsoleWindow title="treestore-engine // incident-kb-8924.dag">
+                  <div className="space-y-2.5 font-mono text-xs">
+                    <div className="p-2.5 bg-surface-elevated rounded border border-border-subtle">
+                      <div className="flex justify-between items-center text-[11px] mb-1">
+                        <span className="text-brand-sky font-semibold">[ROOT] Anomalia P99 Latency &gt; 4000ms</span>
+                        <span className="text-text-muted">Istio Ingress Gateway</span>
                       </div>
-                      <p className="text-text-muted text-[11px]">
-                        Detecção: Latência P99 excedeu 4500ms às 16:40:20 UTC.
-                      </p>
+                      <div className="text-text-muted text-[10px]">Gatilho disparado às 16:40:20 UTC</div>
                     </div>
 
-                    {/* Ramo 1: Refutado */}
-                    <div className="ml-6 pl-4 border-l-2 border-white/10 space-y-2">
-                      <div className="p-2.5 bg-surface-elevated/40 rounded border border-white/5">
-                        <div className="flex items-center justify-between text-text-muted mb-0.5">
-                          <span>RAMO 1A: Hipótese CPU Throttling / Limites CFS</span>
-                          <Badge variant="neutral" size="sm">Refutada (CPU &lt; 35%)</Badge>
+                    <div className="ml-5 pl-4 border-l border-border-medium space-y-2">
+                      <div className="p-2.5 bg-surface-elevated/60 rounded border border-border-subtle">
+                        <div className="flex justify-between items-center text-[11px] mb-0.5">
+                          <span className="text-text-secondary">[BRANCH 1A] Hipótese CFS Quota / CPU Throttling</span>
+                          <span className="text-emerald-400 font-semibold">REFUTADA</span>
                         </div>
-                        <p className="text-[11px] text-text-muted">Agente de Métricas validou que pods operam dentro da quota.</p>
+                        <div className="text-text-muted text-[10px]">Uso de CPU estável em 28% nos 3 pods réplica.</div>
                       </div>
 
-                      {/* Ramo 2: Comprovado */}
-                      <div className="p-3 bg-brand-indigo/10 rounded border border-brand-indigo/40">
-                        <div className="flex items-center justify-between text-indigo-300 font-semibold mb-1">
-                          <span className="flex items-center gap-1.5">
-                            <Layers className="w-3.5 h-3.5 text-brand-cyan" />
-                            RAMO 1B: Hipótese Esgotamento do DB Connection Pool
-                          </span>
-                          <Badge variant="indigo" size="sm">Comprovada (100% conf.)</Badge>
+                      <div className="p-2.5 bg-brand-indigo/15 rounded border border-brand-indigo/30">
+                        <div className="flex justify-between items-center text-[11px] mb-0.5">
+                          <span className="text-brand-sky font-semibold">[BRANCH 1B] Hipótese DB Connection Pool Exhaustion</span>
+                          <span className="text-brand-sky font-semibold">COMPROVADA</span>
                         </div>
-                        <p className="text-[11px] text-text-secondary">
-                          Logs indicam <code className="text-brand-cyan">sql: connection pool exhausted</code> após rollout do ConfigMap v2.4.1.
-                        </p>
+                        <div className="text-text-secondary text-[10px]">
+                          Driver acusa esgotamento após rollout de ConfigMap com pool max de 5 conexões.
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -154,70 +132,56 @@ export const ArchitectureSection: FC = () => {
             </div>
           )}
 
-          {/* TAB 2: RUNTIME MULTIAGENTE */}
+          {/* TAB 2: MULTIAGENTE */}
           {activeTab === 'multiagent' && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               <div className="lg:col-span-5 space-y-4">
-                <Badge variant="cyan">FEDERAÇÃO DE AGENTES</Badge>
-                <h3 className="text-2xl font-bold text-text-primary">
-                  Runtime Multiagente Especializado
+                <div className="text-xs font-mono text-brand-sky font-semibold">
+                  RUNTIME PARALELO
+                </div>
+                <h3 className="text-xl font-bold text-text-primary">
+                  Federação de agentes com escopo delimitado
                 </h3>
                 <p className="text-sm text-text-secondary leading-relaxed">
-                  Em vez de um único modelo genérico que tenta resolver tudo, o Kubeasy utiliza agentes com responsabilidades estritas e ferramentas direcionadas.
+                  Nenhum agente opera de forma generalista. Cada worker possui ferramentas estritas para analisar uma dimensão da infraestrutura.
                 </p>
 
-                <div className="space-y-3 pt-2">
-                  <div className="p-3 bg-surface-elevated rounded-lg border border-white/5">
-                    <strong className="text-xs font-mono text-brand-cyan block mb-1">1. Metric Anomaly Agent</strong>
-                    <p className="text-xs text-text-muted">Inspeciona saturação de cgroups, saturação de rede, taxas de requisições e spikes de latência.</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono pt-2">
+                  <div className="p-2.5 bg-surface-elevated rounded border border-border-subtle">
+                    <strong className="text-text-primary block mb-0.5">Metric Agent</strong>
+                    <span className="text-text-muted text-[11px]">cgroups, latência P99, IOPS e rede.</span>
                   </div>
-                  <div className="p-3 bg-surface-elevated rounded-lg border border-white/5">
-                    <strong className="text-xs font-mono text-status-warn block mb-1">2. Log Forensics Agent</strong>
-                    <p className="text-xs text-text-muted">Varre fluxos do Loki e CloudWatch buscando stacktraces, exceptions recorrentes e erros 5xx.</p>
+                  <div className="p-2.5 bg-surface-elevated rounded border border-border-subtle">
+                    <strong className="text-text-primary block mb-0.5">Log Forensics</strong>
+                    <span className="text-text-muted text-[11px]">Varredura de exceptions e códigos 5xx.</span>
                   </div>
-                  <div className="p-3 bg-surface-elevated rounded-lg border border-white/5">
-                    <strong className="text-xs font-mono text-brand-indigo block mb-1">3. K8s Topology Agent</strong>
-                    <p className="text-xs text-text-muted">Cruza eventos do ReplicaSet, Pod restarts, OOMKilled e histórico de revisões Helm.</p>
+                  <div className="p-2.5 bg-surface-elevated rounded border border-border-subtle">
+                    <strong className="text-text-primary block mb-0.5">K8s Topology</strong>
+                    <span className="text-text-muted text-[11px]">Eventos, ReplicaSets e Helm history.</span>
                   </div>
-                  <div className="p-3 bg-surface-elevated rounded-lg border border-white/5">
-                    <strong className="text-xs font-mono text-status-ok block mb-1">4. Coordinator & Synthesis Agent</strong>
-                    <p className="text-xs text-text-muted">Consolida achados no TreeStore e formula a hipótese de causa-raiz para o operador humano.</p>
+                  <div className="p-2.5 bg-surface-elevated rounded border border-border-subtle">
+                    <strong className="text-text-primary block mb-0.5">Coordinator</strong>
+                    <span className="text-text-muted text-[11px]">Consolidação do grafo no TreeStore.</span>
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-7">
-                <ConsoleWindow title="kubeasy-agent-runtime --active-workers">
+                <ConsoleWindow title="kubeasy-agent-runtime // worker-pool">
                   <div className="space-y-3 font-mono text-xs">
-                    <div className="p-3 bg-black/40 rounded border border-white/5 text-text-muted flex items-center justify-between">
-                      <span className="flex items-center gap-2">
-                        <Cpu className="w-4 h-4 text-brand-cyan animate-pulse" />
-                        <span>COORDINATOR: Despachando análise para 3 agentes paralelos</span>
+                    <div className="p-2.5 bg-canvas rounded border border-border-subtle flex items-center justify-between text-[11px]">
+                      <span className="flex items-center gap-2 text-text-secondary">
+                        <Cpu className="w-3.5 h-3.5 text-brand-sky" />
+                        <span>COORDINATOR: Despachando queries concorrentes</span>
                       </span>
-                      <Badge variant="cyan" size="sm">Sincronizado</Badge>
+                      <span className="text-emerald-400 font-semibold">OK · 3 WORKERS ATIVOS</span>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                      <div className="p-3 bg-surface-elevated rounded border border-white/10 text-center">
-                        <Activity className="w-5 h-5 text-brand-cyan mx-auto mb-1" />
-                        <div className="font-semibold text-text-primary text-[11px]">Metric Agent</div>
-                        <Badge variant="ok" size="sm" className="mt-1">Queries: 12 ok</Badge>
-                      </div>
-                      <div className="p-3 bg-surface-elevated rounded border border-white/10 text-center">
-                        <Search className="w-5 h-5 text-status-warn mx-auto mb-1" />
-                        <div className="font-semibold text-text-primary text-[11px]">Log Forensics</div>
-                        <Badge variant="warn" size="sm" className="mt-1">Found 84 errors</Badge>
-                      </div>
-                      <div className="p-3 bg-surface-elevated rounded border border-white/10 text-center">
-                        <Network className="w-5 h-5 text-brand-indigo mx-auto mb-1" />
-                        <div className="font-semibold text-text-primary text-[11px]">K8s Topology</div>
-                        <Badge variant="indigo" size="sm" className="mt-1">Diff Detectado</Badge>
-                      </div>
-                    </div>
-
-                    <div className="p-3 bg-surface-overlay rounded border border-white/5 text-text-secondary text-[11px] leading-relaxed">
-                      <span className="text-status-ok font-semibold block mb-0.5">SÍNTESE DO COORDENADOR:</span>
-                      "Correlação determinística confirmada entre o rollout Helm v2.4.1 (K8s Agent) e a mensagem de exaustão do pool (Log Agent). Nenhuma falha de hardware ou CPU detectada."
+                    <div className="p-3 bg-surface-elevated rounded border border-border-subtle text-[11px] text-text-secondary space-y-1.5">
+                      <div className="text-brand-sky font-semibold">SÍNTESE DOS AGENTES CONCORRENTES:</div>
+                      <div>• Metric Agent: Saturação de conexões ativas no banco atingiu 100% da cota alocada.</div>
+                      <div>• Log Forensics: 84 ocorrências de `sql: pool exhausted` no namespace `production`.</div>
+                      <div>• Topology Agent: O evento coincide com a revisão #14 do Helm deploy.</div>
                     </div>
                   </div>
                 </ConsoleWindow>
@@ -225,57 +189,42 @@ export const ArchitectureSection: FC = () => {
             </div>
           )}
 
-          {/* TAB 3: GRAFO UNIFICADO & COPILOTO */}
+          {/* TAB 3: GRAFO TOPOLÓGICO */}
           {activeTab === 'graph' && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               <div className="lg:col-span-5 space-y-4">
-                <Badge variant="cyan">CONTEXTO TOPOLÓGICO VIVO</Badge>
-                <h3 className="text-2xl font-bold text-text-primary">
-                  Grafo Unificado de Infraestrutura & Copiloto
+                <div className="text-xs font-mono text-brand-sky font-semibold">
+                  CONTEXTO DINÂMICO
+                </div>
+                <h3 className="text-xl font-bold text-text-primary">
+                  Grafo unificado de dependências
                 </h3>
                 <p className="text-sm text-text-secondary leading-relaxed">
-                  Microsserviços não falham no vácuo. O Grafo Unificado do Kubeasy mapeia em tempo real como pods, serviços, proxies e dependências de nuvem se comunicam.
+                  Microsserviços formam malhas intrincadas de tráfego. O Kubeasy mantém a topologia viva para responder perguntas com precisão cirúrgica através do Copiloto.
                 </p>
 
-                <div className="space-y-3 text-xs font-mono text-text-secondary pt-2">
-                  <div className="flex items-start gap-2.5">
-                    <Network className="w-4 h-4 text-brand-cyan shrink-0 mt-0.5" />
-                    <span>Visão de dependências em camadas: Ingress → Service Mesh → Pods → RDS.</span>
+                <div className="space-y-2 text-xs font-mono text-text-secondary pt-2">
+                  <div className="p-2.5 bg-surface-elevated rounded border border-border-subtle">
+                    Correlaciona Ingress, Service Mesh, Pods e bancos gerenciados em uma única malha de dados.
                   </div>
-                  <div className="flex items-start gap-2.5">
-                    <Bot className="w-4 h-4 text-brand-indigo shrink-0 mt-0.5" />
-                    <span>Copiloto que consulta o Grafo diretamente: zero alucinações.</span>
-                  </div>
-                  <div className="flex items-start gap-2.5">
-                    <FileCode className="w-4 h-4 text-status-ok shrink-0 mt-0.5" />
-                    <span>Pergunte sobre qualquer componente em linguagem natural técnica.</span>
+                  <div className="p-2.5 bg-surface-elevated rounded border border-border-subtle">
+                    Copiloto ancorado na árvore de evidências: zero alucinações de modelos generativos comuns.
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-7">
-                <ConsoleWindow title="kubeasy-contextual-copilot --session=live">
+                <ConsoleWindow title="kubeasy-topology // cluster-sa-east-1.graph">
                   <div className="space-y-3 font-mono text-xs">
-                    <div className="p-2.5 bg-black/40 rounded border border-white/5 text-text-muted flex items-center justify-between">
-                      <span>Topologia Ativa: 18 Microsserviços · 4 Bancos AWS RDS · 2 Redis</span>
-                      <Badge variant="ok" size="sm">Grafo Sincronizado</Badge>
+                    <div className="p-2.5 bg-canvas rounded border border-border-subtle text-text-muted text-[11px]">
+                      Topologia Mapeada: 14 Pods · 3 Services · 1 IngressGateway · 1 AWS RDS Postgres
                     </div>
 
-                    <div className="p-3 bg-surface-elevated/70 rounded border border-white/10 text-text-secondary">
-                      <span className="text-brand-cyan font-bold block mb-1">ENGENHEIRO DE PLANTÃO:</span>
-                      "O problema no checkout pode afetar o serviço de pagamentos ou o inventário?"
-                    </div>
-
-                    <div className="p-3 bg-surface-overlay rounded border border-brand-indigo/30 text-text-primary space-y-1.5">
-                      <span className="text-brand-indigo font-bold flex items-center gap-1.5">
-                        <Bot className="w-3.5 h-3.5 text-brand-cyan" />
-                        COPILOTO KUBEASY:
-                      </span>
-                      <p className="text-text-secondary text-[11px] leading-relaxed">
-                        Consultando o Grafo Unificado: O serviço de pagamentos (<code className="text-brand-cyan">payment-service</code>) utiliza um pool independente e opera com 100% de disponibilidade. No entanto, o serviço de inventário (<code className="text-brand-cyan">inventory-api</code>) depende diretamente de chamadas síncronas do checkout e já registra aumento de 8% na fila de retry.
-                      </p>
-                      <div className="pt-1 text-[10px] text-text-muted">
-                        Evidência ancorada em Istio VirtualService routes e métricas Envoy.
+                    <div className="p-3 bg-surface-elevated rounded border border-border-subtle space-y-2">
+                      <div className="text-brand-sky font-semibold text-[11px]">CONSULTA COPILOTO:</div>
+                      <div className="text-text-muted text-[11px]">"Qual o raio de impacto da falha no checkout-service?"</div>
+                      <div className="text-text-secondary text-[11px] leading-relaxed pt-1 border-t border-border-subtle">
+                        O serviço de pagamentos (<code className="text-brand-sky">payment-service</code>) utiliza pool independente e não está degradado. Contudo, o serviço de notificações registra aumento de 12% no buffer de retry por dependência transitiva.
                       </div>
                     </div>
                   </div>
@@ -284,58 +233,45 @@ export const ArchitectureSection: FC = () => {
             </div>
           )}
 
-          {/* TAB 4: GOVERNANÇA & GITOPS */}
+          {/* TAB 4: GOVERNANÇA */}
           {activeTab === 'governance' && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               <div className="lg:col-span-5 space-y-4">
-                <Badge variant="gov">CONTROLE E CONFORMIDADE</Badge>
-                <h3 className="text-2xl font-bold text-text-primary">
-                  Governança, GitOps & Human-in-the-Loop
+                <div className="text-xs font-mono text-purple-400 font-semibold">
+                  CONTROLE DE PRODUÇÃO
+                </div>
+                <h3 className="text-xl font-bold text-text-primary">
+                  Governança GitOps e Human-in-the-Loop
                 </h3>
                 <p className="text-sm text-text-secondary leading-relaxed">
-                  A automação sem controle gera riscos inaceitáveis em produção. No Kubeasy, nenhuma alteração de infraestrutura é executada sem passar por políticas estritas de governança.
+                  Automação sem controle humano representa risco inaceitável. O Kubeasy formata qualquer remediação como um Pull Request declarativo e exige autenticação forte.
                 </p>
 
-                <div className="space-y-3 text-xs font-mono text-text-secondary pt-2">
-                  <div className="flex items-start gap-2.5">
-                    <Fingerprint className="w-4 h-4 text-status-gov shrink-0 mt-0.5" />
-                    <span><strong>MFA Obrigatório:</strong> Liberação de ações críticas via chaves FIDO2 (YubiKey/Passkeys) ou TOTP.</span>
+                <div className="space-y-2 text-xs font-mono text-text-secondary pt-2">
+                  <div className="p-2.5 bg-surface-elevated rounded border border-border-subtle">
+                    <strong>Chaves FIDO2 / WebAuthn:</strong> Assinatura de ações de alto privilégio via hardware (YubiKey) ou TOTP.
                   </div>
-                  <div className="flex items-start gap-2.5">
-                    <GitPullRequest className="w-4 h-4 text-brand-cyan shrink-0 mt-0.5" />
-                    <span><strong>GitOps First:</strong> Remediações sugeridas são formatadas como Pull Requests rastreáveis no GitHub / Argo CD.</span>
-                  </div>
-                  <div className="flex items-start gap-2.5">
-                    <ShieldCheck className="w-4 h-4 text-status-ok shrink-0 mt-0.5" />
-                    <span><strong>Trilha de Auditoria Imutável:</strong> Todo comando, aprovação e diagnóstico é registrado e auditável.</span>
+                  <div className="p-2.5 bg-surface-elevated rounded border border-border-subtle">
+                    <strong>Trilha de Auditoria Imutável:</strong> Todo veredito, operador responsável e diff executado é auditável.
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-7">
-                <ConsoleWindow title="kubeasy-governance-checkpoint // policy-enforcer">
+                <ConsoleWindow title="kubeasy-governance // policy-enforcer">
                   <div className="space-y-3 font-mono text-xs">
-                    <div className="p-3 bg-surface-elevated rounded border border-status-gov/30 flex items-center justify-between">
+                    <div className="p-3 bg-surface-elevated rounded border border-purple-500/30 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Fingerprint className="w-5 h-5 text-status-gov" />
-                        <div>
-                          <div className="font-semibold text-text-primary text-[11px]">AUTENTICAÇÃO FIDO2 NECESSÁRIA</div>
-                          <span className="text-text-muted text-[10px]">Ação: Executar rollback de deployment em cluster de produção</span>
-                        </div>
+                        <Fingerprint className="w-4 h-4 text-purple-400" />
+                        <span className="font-semibold text-text-primary text-[11px]">EXIGÊNCIA DE APROVAÇÃO MULTIFATOR</span>
                       </div>
-                      <Badge variant="gov" size="sm">Human-in-the-Loop</Badge>
+                      <Badge variant="gov" size="sm">POLICY ACTIVE</Badge>
                     </div>
 
-                    <div className="p-3 bg-surface-overlay rounded border border-white/5 space-y-2 text-[11px]">
-                      <div className="text-brand-cyan font-semibold">ARQUIVOS AFETADOS NO PULL REQUEST GITOPS:</div>
-                      <div className="bg-black/40 p-2 rounded text-text-muted space-y-1">
-                        <div>M deployments/checkout/values.yaml</div>
-                        <div className="text-status-error">- tag: v2.4.1</div>
-                        <div className="text-status-ok">+ tag: v2.4.0</div>
-                      </div>
-                      <div className="text-text-secondary">
-                        Políticas ativas: Zero downtime deployment · Argo CD Sync automatic disabled · Requer 1 aprovação SRE.
-                      </div>
+                    <div className="p-3 bg-canvas rounded border border-border-subtle text-[11px] space-y-1.5 text-text-muted">
+                      <div>Ação Restrita: Mutação de namespace `production`.</div>
+                      <div>Destino: Sincronização via Argo CD Application `checkout-prod`.</div>
+                      <div className="text-emerald-400">Status: Aguardando toque de chave física WebAuthn do líder de plantão.</div>
                     </div>
                   </div>
                 </ConsoleWindow>

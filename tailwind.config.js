@@ -7,30 +7,31 @@ export default {
   theme: {
     extend: {
       colors: {
-        canvas: '#090D16',
+        canvas: '#0B0E14',
         surface: {
-          subtle: '#0E1424',
-          elevated: '#151E34',
-          overlay: '#1C2642',
+          subtle: '#101520',
+          elevated: '#161D2C',
+          overlay: '#1D263B',
         },
         border: {
-          subtle: 'rgba(255, 255, 255, 0.08)',
-          medium: 'rgba(255, 255, 255, 0.16)',
-          focus: 'rgba(99, 102, 241, 0.5)',
+          subtle: '#1E2638',
+          medium: '#2A364F',
+          focus: '#38BDF8',
         },
         brand: {
-          indigo: '#6366F1',
-          cyan: '#38BDF8',
-          blue: '#3B82F6',
+          indigo: '#4F46E5',
+          cyan: '#0284C7',
+          sky: '#38BDF8',
+          blue: '#2563EB',
         },
         status: {
-          ok: '#10B981',
-          warn: '#F59E0B',
-          error: '#EF4444',
-          gov: '#8B5CF6',
+          ok: '#059669',
+          warn: '#D97706',
+          error: '#DC2626',
+          gov: '#7C3AED',
         },
         text: {
-          primary: '#F8FAFC',
+          primary: '#F1F5F9',
           secondary: '#94A3B8',
           muted: '#64748B',
         }
@@ -40,10 +41,8 @@ export default {
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
       boxShadow: {
-        'glow-indigo': '0 0 35px -5px rgba(99, 102, 241, 0.25)',
-        'glow-cyan': '0 0 35px -5px rgba(56, 189, 248, 0.25)',
-        'glow-error': '0 0 35px -5px rgba(239, 68, 68, 0.25)',
-        'console': '0 20px 40px -15px rgba(0, 0, 0, 0.6)',
+        'panel': '0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4)',
+        'console': '0 10px 30px -10px rgba(0, 0, 0, 0.7)',
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
