@@ -4,6 +4,7 @@ import { Hero } from './components/hero/Hero';
 import { ProblemSection } from './components/sections/ProblemSection';
 import { ValueProposalSection } from './components/sections/ValueProposalSection';
 import { ArchitectureSection } from './components/sections/ArchitectureSection';
+import { ScenariosSection } from './components/sections/ScenariosSection';
 import { EarlyAccessModal } from './components/ui/EarlyAccessModal';
 
 export const App: FC = () => {
@@ -27,6 +28,9 @@ export const App: FC = () => {
 
         {/* ETAPA 05: Diferenciais e Arquitetura Profunda */}
         <ArchitectureSection />
+
+        {/* ETAPA 06: Demonstrações Práticas de 3 Cenários */}
+        <ScenariosSection />
       </main>
 
       {/* Modal Acessível de Early Access / Demonstração Técnica */}
