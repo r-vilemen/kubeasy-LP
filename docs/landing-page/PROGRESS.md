@@ -63,5 +63,77 @@
   - `src/components/ui/EarlyAccessModal.tsx`
 - **Validações Executadas:**
   - `npm run build` gerou artefatos estáticos na pasta `dist/` sem qualquer erro.
-- **Próxima Etapa:** ETAPA 02 — ESTRUTURA E NARRATIVA & ETAPA 03 — HEADER E HERO.
+### [ETAPA 02] — ESTRUTURA E NARRATIVA
+- **Data:** 07/11/2026
+- **Status:** CONCLUÍDA
+- **Atividades Realizadas:**
+  - Redação técnica e revisão integral em `CONTENT.md`.
+  - Definição da narrativa sem promessas não verificadas de IA, com separação explícita entre arquitetura real, capacidades de demonstração e governança mandatória.
+  - Estruturação dos três cenários conceituais de investigação assistida.
+
+### [ETAPA 03] — HEADER E HERO SECTION
+- **Data:** 07/11/2026
+- **Status:** CONCLUÍDA
+- **Atividades Realizadas:**
+  - Implementação do `Header.tsx` responsivo com menu drawer mobile, backdrop-blur ao scrollar e CTA funcional com modal.
+  - Implementação do `Hero.tsx` com headline e subheadline focadas na proposta de valor de Kubernetes.
+  - Construção do `HeroConsoleDemo.tsx`: console interativo com simulação de incidente `#KB-4028`, abas de TreeStore, Topologia Istio/K8s/RDS e Copiloto contextual.
+  - Commit Git: `feat(hero): implement accessible header and interactive live console hero (Step 03)`.
+
+### [ETAPA 04] — O PROBLEMA E A PROPOSTA DE VALOR
+- **Data:** 07/11/2026
+- **Status:** CONCLUÍDA
+- **Atividades Realizadas:**
+  - Criação de `ProblemSection.tsx`: contraste visual nítido entre a fragmentação operacional (5+ ferramentas e silos) vs. o fluxo integrado do Kubeasy.
+  - Criação de `ValueProposalSection.tsx`: fluxo determinístico em 5 passos (Detectar, Correlacionar, Investigar, Recomendar, Aprovar & Governar).
+  - Commit Git: `feat(sections): implement problem and value proposal workflow sections (Step 04)`.
+
+### [ETAPA 05] — DIFERENCIAIS E ARQUITETURA PROFUNDA
+- **Data:** 07/11/2026
+- **Status:** CONCLUÍDA
+- **Atividades Realizadas:**
+  - Criação de `ArchitectureSection.tsx` com 4 composições visuais distintas para evitar repetição de layout:
+    1. Visualizador de árvore imutável do TreeStore com hipóteses refutadas vs comprovadas.
+    2. Runtime multiagente especializado com coordenação paralela (Metric, Log, Topology, Coordinator).
+    3. Grafo unificado de infraestrutura e Copiloto contextual.
+    4. Governança, autenticação FIDO2/TOTP e fluxo GitOps PR.
+  - Commit Git: `feat(architecture): implement deep architecture and interactive differentials tabs (Step 05)`.
+
+### [ETAPA 06] — CENÁRIOS PRÁTICOS DE INVESTIGAÇÃO
+- **Data:** 07/11/2026
+- **Status:** CONCLUÍDA
+- **Atividades Realizadas:**
+  - Criação de `ScenariosSection.tsx` com alternância em tempo real entre os 3 cenários do briefing:
+    - Cenário 01: Deploy com aumento de erros HTTP 5xx no Istio Gateway.
+    - Cenário 02: Pressão de memória em Pods e CrashLoopBackOff (OOMKilled).
+    - Cenário 03: Lentidão no AWS RDS sem alarme prévio (Seq Scan shared lock).
+  - Cada cenário conta com fluxo triplo: Detecção -> TreeStore -> Remediação com aprovação interativa.
+  - Commit Git: `feat(scenarios): implement 3 interactive investigation scenarios with governed remediation (Step 06)`.
+
+### [ETAPA 07] — INTEGRAÇÕES, SEGURANÇA E FOOTER
+- **Data:** 07/11/2026
+- **Status:** CONCLUÍDA
+- **Atividades Realizadas:**
+  - Criação de `IntegrationsSection.tsx` categorizado: Kubernetes, Helm, Istio, Prometheus, Loki, CloudWatch, AWS RDS, GitHub App e Argo CD.
+  - Criação de `SecuritySection.tsx` destacando Human-in-the-Loop, chaves FIDO2/TOTP e trilha de auditoria imutável.
+  - Criação de `FinalCtaSection.tsx` com gatilho para early access técnico e agendamento de briefing.
+  - Criação de `Footer.tsx` com navegação interna, links de conformidade e status operacional.
+  - Commit Git: `feat(integrations-security-footer): implement ecosystem, governance, final cta and footer (Step 07)`.
+
+### [ETAPA 08] — RESPONSIVIDADE E INTERAÇÕES
+- **Data:** 07/11/2026
+- **Status:** CONCLUÍDA
+- **Atividades Realizadas:**
+  - Suporte a `prefers-reduced-motion` no CSS para acessibilidade de movimento.
+  - Estados de foco com anel visível de contraste (`focus-visible:ring-2`).
+  - Menu responsivo móvel e alternância fluida entre tabs e cenários sem quebras de layout.
+
+### [ETAPA 09] — AUDITORIA FINAL E QA
+- **Data:** 07/11/2026
+- **Status:** CONCLUÍDA
+- **Atividades Realizadas:**
+  - Build estático de produção executado com sucesso: `tsc -b && vite build`.
+  - Zero erros de compilação TypeScript, zero warnings.
+  - Bundle gerado pronto para deploy estático na AWS (S3 + CloudFront ou Amplify).
+  - Registro de QA completo em `QA_REPORT.md`.
 
