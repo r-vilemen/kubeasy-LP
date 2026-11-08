@@ -106,3 +106,4 @@ Os arquivos estáticos finais serão gerados no diretório `dist/`.
 <div align="center">
   <sub>© 2026 Kubeasy. Todos os direitos reservados.</sub>
 </div>
+
