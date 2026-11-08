@@ -43,3 +43,4 @@ export function SectionHead({ n, label, title, lead, align = "left" }: { n: stri
 }
 
 export const Arrow = () => <span className="arrow" aria-hidden>→</span>;
+

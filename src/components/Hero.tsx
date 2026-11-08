@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import { Arrow, Seal } from "./common";
+import { SIGNUP_URL } from "../config";
 
 type NodeKey = "causa" | "descartada" | "sintoma";
 const info: Record<NodeKey, { t: string; d: string; e: string; tone: string }> = {
@@ -86,7 +87,7 @@ export function Hero() {
             Às 3 da manhã você não precisa de mais um dashboard. Precisa saber <strong className="text-fg font-semibold">o que quebrou, por quê, e o que é seguro fazer</strong>. O Kubeasy testa cada hipótese contra fatos do seu cluster e só muda produção quando você aprova.
           </p>
           <div className="reveal in mt-9 flex flex-wrap gap-4" style={{ ["--d" as string]: "320ms" } as React.CSSProperties}>
-            <a href="#acesso" className="btn btn-primary">Quero acesso antecipado <Arrow /></a>
+            <a href={SIGNUP_URL} className="btn btn-primary">Criar minha conta <Arrow /></a>
             <a href="#video" className="btn btn-ghost">
               <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden><path d="M3 1.5v11l9-5.5z" fill="currentColor" /></svg> Ver em ação
             </a>
@@ -105,3 +106,4 @@ export function Hero() {
     </section>
   );
 }
+

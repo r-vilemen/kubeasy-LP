@@ -1,6 +1,7 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Reveal, SectionHead } from "./common";
 import { useCountUp } from "../hooks/hooks";
+import { SIGNUP_URL } from "../config";
 
 const groups: [string, string[]][] = [
   ["Orquestração", ["Kubernetes", "Helm"]],
@@ -76,7 +77,7 @@ export function CostSection() {
             <p className="display relative text-[clamp(56px,8vw,92px)] tabular-nums leading-none">{Math.round(aSaved).toLocaleString("pt-BR")}<span className="text-[.35em] text-muted ml-2 not-italic">horas</span></p>
             <p className="relative mono text-[22px] mt-5 text-brand tabular-nums">≈ {brl(aMoney)}</p>
             <p className="relative text-muted mt-6 leading-relaxed text-[15px]">E isso sem contar o que não aparece na planilha: sono, rotatividade de plantonistas e o cliente que não volta depois de um incidente longo.</p>
-            <a href="#acesso" className="btn btn-primary relative mt-8">Quero reduzir esse número →</a>
+            <a href={SIGNUP_URL} className="btn btn-primary relative mt-8">Quero reduzir esse número →</a>
           </div>
           <p className="mono text-[11.5px] text-muted mt-3">horas = incidentes × engenheiros × horas × redução × 12 meses. Estimativa ilustrativa.</p>
         </Reveal>
@@ -84,3 +85,5 @@ export function CostSection() {
     </section>
   );
 }
+
+
