@@ -3,3 +3,4 @@ export const APP_URL = (import.meta.env.VITE_APP_URL as string | undefined) ?? "
 export const SIGNUP_URL = `${APP_URL}/pt-BR/cadastro`;
 export const LOGIN_URL = `${APP_URL}/pt-BR/entrar`;
 export const DEMO_URL = `${APP_URL}/pt-BR/demo`;
+
