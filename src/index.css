@@ -3,7 +3,31 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-padding-top: 72px; }
+/* scrollbar personalizada alinhada aos tokens de design do sistema */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--kb-brand) var(--kb-bg);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--kb-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--kb-brand);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.15);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 body {
   margin: 0;
   background: var(--kb-bg);
@@ -86,6 +110,9 @@ input[type=range] { accent-color: var(--kb-brand); width: 100%; cursor: grab; }
   .enter, .fade-in, .node-pop { opacity: 1; transform: none; }
   .trace { stroke-dashoffset: 0; }
 }
+
+
+
 
 
 
