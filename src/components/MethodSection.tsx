@@ -33,8 +33,8 @@ export function MethodSection() {
                     <a
                       href="#metodo"
                       onClick={(e) => { e.preventDefault(); const el = ref.current; if (!el) return; window.scrollTo({ top: el.offsetTop + (i / 5 + 0.02) * (el.offsetHeight - window.innerHeight), behavior: "smooth" }); }}
-                      className="flex gap-3 lg:gap-4 p-2.5 lg:p-4 rounded border transition-all duration-300"
-                      style={{ borderColor: a ? "var(--kb-fg)" : "transparent", background: a ? "var(--kb-surface)" : "transparent", opacity: a ? 1 : done ? 0.75 : 0.45 }}
+                      className="flex gap-3 lg:gap-4 p-2.5 lg:p-4 border transition-all duration-300" style={{ borderRadius: "2px", borderColor: a ? "var(--kb-fg)" : "transparent", background: a ? "var(--kb-surface)" : "transparent", opacity: a ? 1 : done ? 0.75 : 0.45 }}
+                      
                     >
                       <span className="mono text-[13px] w-7 shrink-0 pt-1 transition-colors" style={{ color: a || done ? "var(--kb-brand)" : "var(--kb-fg-muted)" }}>{done ? "✓" : String(i + 1).padStart(2, "0")}</span>
                       <span>
@@ -117,5 +117,6 @@ export function MethodSection() {
     </section>
   );
 }
+
 
 

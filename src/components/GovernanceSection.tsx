@@ -32,7 +32,7 @@ function ApprovalCard() {
           <p className="label mb-2">proposta</p>
           <p className="display text-[26px]">Subir limite de memória de 256Mi para 512Mi</p>
         </div>
-        <pre className="mono text-[12.5px] p-4 rounded border border-line bg-bg" style={{ margin: 0 }}>
+        <pre className="mono text-[12.5px] p-4 border border-line bg-bg" style={{ margin: 0 }}>
           <span className="text-muted">@@ deploy/orders-api.yaml</span>{"\n"}
           <span style={{ color: "var(--kb-critical)" }}>-   memory: 256Mi</span>{"\n"}
           <span style={{ color: "var(--kb-ok)" }}>+   memory: 512Mi</span>
@@ -86,3 +86,4 @@ export function GovernanceSection() {
     </section>
   );
 }
+
