@@ -1,5 +1,5 @@
 ﻿import { useEffect, useRef, useState } from "react";
-import { SectionHead, Reveal } from "./common";
+import { Check, Cross, SectionHead } from "./common";
 
 type H = { t: string; fact: string; ok: boolean };
 type Scenario = { id: string; tab: string; symptom: string; hyps: H[]; fix: string; diff: [string, string]; approver: string };
@@ -50,54 +50,52 @@ export function InvestigationSection() {
   return (
     <section id="investigacao" className="py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-5">
-        <SectionHead n="03" label="Na prática" title={<>Escolha um incidente. <em>Assista à investigação.</em></>} lead="Três cenários reais de SRE. Veja o que o Kubeasy testa, o que descarta e por quê." />
-        <Reveal className="mt-12">
-          <div role="tablist" className="flex flex-wrap gap-2 mb-6">
+        <SectionHead n="03" label="Na prática" title={<>Escolha um incidente. <em>Assista à investigação.</em></>} lead="Três cenários de SRE. Veja o que o Kubeasy testa, o que descarta e por quê." />
+
+        <div className="mt-16 md:pl-[192px]">
+          <div role="tablist" aria-label="Cenários" className="flex flex-wrap gap-x-8 gap-y-2 border-b border-line">
             {scenarios.map((s, i) => (
-              <button key={s.id} role="tab" aria-selected={i === idx} onClick={() => run(i)} className="mono text-[13px] px-4 py-2.5 border rounded transition-all duration-200 hover:-translate-y-0.5" style={{ background: i === idx ? "var(--kb-fg)" : "transparent", color: i === idx ? "var(--kb-bg)" : "var(--kb-fg)", borderColor: i === idx ? "var(--kb-fg)" : "var(--kb-border)" }}>
+              <button key={s.id} role="tab" aria-selected={i === idx} onClick={() => run(i)} className="py-3 -mb-px text-[15px] border-b-2 transition-colors" style={{ borderColor: i === idx ? "var(--kb-fg)" : "transparent", color: i === idx ? "var(--kb-fg)" : "var(--kb-fg-muted)", fontWeight: i === idx ? 600 : 400 }}>
                 {s.tab}
               </button>
             ))}
           </div>
-          <div className="card overflow-hidden">
-            <div className="flex justify-between px-5 py-3 border-b border-line mono text-[12px] text-muted">
-              <span>laudo · {sc.id}</span>
-              <button onClick={() => run(idx)} className="ulink hover:text-fg">↻ repetir</button>
-            </div>
-            <div className="p-6 lg:p-8 grid lg:grid-cols-[.8fr_1.2fr] gap-8">
-              <div>
-                <p className="label mb-3">sintoma</p>
-                <p className="display text-[28px]">{sc.symptom}</p>
-                <div className="mt-8 transition-all duration-500" style={{ opacity: step >= 4 ? 1 : 0.2, transform: step >= 4 ? "none" : "translateY(10px)" }}>
-                  <p className="label mb-3">proposta</p>
-                  <p className="font-semibold mb-3">{sc.fix}</p>
-                  <pre className="mono text-[12px] p-3 rounded border border-line bg-bg overflow-x-auto" style={{ margin: 0 }}>
-                    <span style={{ color: "var(--kb-critical)" }}>- {sc.diff[0]}</span>{"\n"}<span style={{ color: "var(--kb-ok)" }}>+ {sc.diff[1]}</span>
-                  </pre>
-                  <p className="mono text-[12px] mt-3" style={{ color: "var(--kb-warn)" }}>aguardando aprovação do {sc.approver}</p>
-                </div>
+
+          <div className="grid lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] gap-x-16 gap-y-12 pt-10">
+            <div>
+              <p className="label mb-3">Sintoma</p>
+              <p className="display text-[clamp(26px,3vw,36px)]">{sc.symptom}</p>
+              <div className="mt-10 transition-opacity duration-300" style={{ opacity: step >= 4 ? 1 : 0.25 }}>
+                <p className="label mb-3">Proposta</p>
+                <p className="font-semibold mb-3">{sc.fix}</p>
+                <pre className="mono text-[12px] p-3 border border-line bg-surface overflow-x-auto" style={{ margin: 0, borderRadius: 2 }}>
+                  <span style={{ color: "var(--kb-critical)" }}>- {sc.diff[0]}</span>{"\n"}<span style={{ color: "var(--kb-ok)" }}>+ {sc.diff[1]}</span>
+                </pre>
+                <p className="mono text-[12px] mt-3" style={{ color: "var(--kb-warn)" }}>Aguardando aprovação do {sc.approver}</p>
               </div>
-              <ul className="space-y-3">
-                {sc.hyps.map((h, i) => {
-                  const shown = step >= i + 1;
-                  const done = step >= i + 2 || step >= 4;
-                  return (
-                    <li key={h.t} className="flex gap-4 p-4 border rounded transition-all duration-500" style={{ opacity: shown ? 1 : 0.15, transform: shown ? "none" : "translateX(16px)", borderColor: done && h.ok ? "var(--kb-ok)" : "var(--kb-border)", background: done && h.ok ? "var(--kb-ok-soft)" : "transparent", borderStyle: done && !h.ok ? "dashed" : "solid" }}>
-                      <span className="mt-0.5 w-5 shrink-0 text-center mono text-[15px] font-semibold" style={{ color: done ? (h.ok ? "var(--kb-ok)" : "var(--kb-discarded)") : "var(--kb-brand)" }}>{done ? (h.ok ? "✓" : "✕") : shown ? "…" : ""}</span>
-                      <div>
-                        <p className={`font-semibold ${done && !h.ok ? "strike" : ""}`}>{h.t}</p>
-                        <p className="mono text-[12.5px] text-muted mt-1">{done ? h.fact : "testando contra os fatos do cluster…"}</p>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
+              <button onClick={() => run(idx)} className="ulink mono text-[12px] text-muted hover:text-fg mt-8">repetir</button>
             </div>
+
+            <ol className="rule-list" aria-live="polite">
+              {sc.hyps.map((h, i) => {
+                const shown = step >= i + 1;
+                const done = step >= i + 2 || step >= 4;
+                return (
+                  <li key={h.t} className="flex gap-4 py-5 transition-opacity duration-300" style={{ opacity: shown ? 1 : 0.2 }}>
+                    <span className="mt-1 w-4 shrink-0" style={{ color: done ? (h.ok ? "var(--kb-ok)" : "var(--kb-discarded)") : "var(--kb-brand)" }}>
+                      {done ? (h.ok ? <Check /> : <Cross />) : <span className="mono text-[14px]">…</span>}
+                    </span>
+                    <div>
+                      <p className={`display text-[22px] ${done && !h.ok ? "strike" : ""}`} style={{ fontWeight: done && h.ok ? 600 : 500 }}>{h.t}</p>
+                      <p className="mono text-[13px] text-muted mt-1">{done ? h.fact : "testando contra os fatos do cluster…"}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
 }
-
-

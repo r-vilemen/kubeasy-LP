@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Arrow, Play, Seal } from "./common";
 import { SIGNUP_URL } from "../config";
 
