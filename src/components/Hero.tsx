@@ -94,7 +94,7 @@ export function Hero() {
           </div>
           <ul className="reveal in mt-10 flex flex-wrap gap-x-8 gap-y-3 mono text-[12.5px] text-muted" style={{ ["--d" as string]: "440ms" } as React.CSSProperties}>
             {["hipóteses testadas, não chutadas", "mudança vira diff no GitOps", "produção só com aprovação"].map((t) => (
-              <li key={t} className="flex items-center gap-2"><span className="text-ok">✓</span>{t}</li>
+              <li key={t} className="border-l border-line pl-3">{t}</li>
             ))}
           </ul>
         </div>
@@ -106,5 +106,6 @@ export function Hero() {
     </section>
   );
 }
+
 
 

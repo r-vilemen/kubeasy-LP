@@ -19,7 +19,7 @@ export function FinalCta() {
         </div>
         <p className="mt-6 text-[14px] text-muted">Já tem conta? <a href={LOGIN_URL} className="ulink text-fg font-semibold">Entrar</a></p>
         <ul className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 mono text-[12.5px] text-muted">
-          {["hipóteses testadas contra fatos", "mudanças como diff no GitOps", "produção só com a sua aprovação"].map((t) => <li key={t} className="flex gap-2"><span className="text-ok">✓</span>{t}</li>)}
+          {["hipóteses testadas contra fatos", "mudanças como diff no GitOps", "produção só com a sua aprovação"].map((t) => <li key={t} className="border-l border-line pl-3">{t}</li>)}
         </ul>
       </div>
     </section>
@@ -38,5 +38,6 @@ export function Footer() {
     </footer>
   );
 }
+
 
 
