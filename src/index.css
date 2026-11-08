@@ -3,6 +3,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* scrollbar personalizada alinhada aos tokens de design do sistema */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--kb-border) var(--kb-bg);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--kb-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--kb-border);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--kb-brand);
+}
+
 html { scroll-padding-top: 72px; }
 body {
   margin: 0;
@@ -86,6 +110,7 @@ input[type=range] { accent-color: var(--kb-brand); width: 100%; cursor: grab; }
   .enter, .fade-in, .node-pop { opacity: 1; transform: none; }
   .trace { stroke-dashoffset: 0; }
 }
+
 
 
 
