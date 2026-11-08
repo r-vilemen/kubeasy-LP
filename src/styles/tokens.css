@@ -1,0 +1,110 @@
+/* Kubeasy · tokens de marca · v1.0
+   Primitivos (materiais) + semânticos por tema.
+   Tema claro é o padrão em :root; o escuro entra com [data-theme="dark"]
+   ou com prefers-color-scheme quando não houver atributo.
+   Tailwind: mapeie as variáveis semânticas (--kb-bg, --kb-fg, ...) em theme.extend.colors
+   usando "rgb(var(--kb-...-rgb) / <alpha-value>)" ou simplesmente "var(--kb-...)". */
+
+:root {
+  /* ---- materiais (primitivos) ---- */
+  --kb-laudo: #F2EFE8;            /* papel de laudo · fundo de página claro */
+  --kb-papel: #FBFAF6;            /* papel · cartões e superfícies sobre Laudo */
+  --kb-carvao: #121416;          /* carvão · fundo de página escuro */
+  --kb-ardosia: #1B1F23;        /* ardósia · painéis e cartões sobre Carvão */
+  --kb-tinta: #1A1D21;            /* tinta · texto sobre claro */
+  --kb-giz: #E9E6DE;                /* giz · texto sobre escuro */
+  --kb-grafite: #5F656D;        /* grafite · secundário e descartado sobre claro */
+  --kb-grafite-claro: #9AA1A9;  /* secundário e descartado sobre escuro */
+  --kb-trilha: #C9C5BC;          /* trilha · bordas e ramos sobre claro */
+  --kb-trilha-escura: #30363D;  /* bordas e ramos sobre escuro */
+  --kb-carimbo: #4C3FA6;        /* carimbo · cor de marca sobre claro */
+  --kb-carimbo-claro: #A89DF0;  /* cor de marca sobre escuro */
+  --kb-oliva: #2F7A4F;            /* confirmado · claro */
+  --kb-oliva-clara: #7CC79A;
+  --kb-ambar: #8A5F00;            /* atenção · claro */
+  --kb-ambar-claro: #E3B341;
+  --kb-lacre: #B3362F;            /* crítico · claro */
+  --kb-lacre-claro: #F08A82;
+
+  /* ---- tipografia ---- */
+  --kb-font-display: 'Newsreader', Georgia, serif;          /* títulos, conceito, slides */
+  --kb-font-sans: 'Instrument Sans', system-ui, sans-serif; /* texto e interface */
+  --kb-font-mono: 'JetBrains Mono', ui-monospace, monospace;/* dados, evidências, identificadores */
+
+  --kb-text-xs: 12px;  --kb-text-sm: 13px;  --kb-text-base: 15px; --kb-text-md: 17px;
+  --kb-text-lg: 22px;  --kb-text-xl: 30px;  --kb-text-2xl: 42px;  --kb-text-3xl: 60px;
+  --kb-leading-tight: 1.15; --kb-leading-body: 1.55; --kb-leading-mono: 1.6;
+  --kb-tracking-mono: 0.06em; --kb-tracking-label: 0.12em;
+
+  /* ---- forma ---- */
+  --kb-radius-sm: 2px; --kb-radius-md: 4px; --kb-radius-tile: 12px;
+  --kb-stroke: 1.4px;           /* traço padrão de ramos, bordas e selos */
+  --kb-dash: 3 2.4;             /* stroke-dasharray do estado descartado */
+
+  /* ---- movimento ---- */
+  --kb-dur-micro: 120ms;        /* foco, hover, troca de estado de um nó */
+  --kb-dur-move: 240ms;         /* entrada de painel, expansão de hipótese */
+  --kb-dur-trace: 700ms;        /* desenho de um ramo ou trecho */
+  --kb-ease-trilha: cubic-bezier(0.2, 0, 0, 1);   /* sai rápido, assenta devagar */
+  --kb-ease-linear: linear;     /* progresso real; nunca para enfeite */
+
+  /* ---- semânticos · tema claro (padrão) ---- */
+  --kb-bg: var(--kb-laudo);
+  --kb-surface: var(--kb-papel);
+  --kb-fg: var(--kb-tinta);
+  --kb-fg-muted: var(--kb-grafite);
+  --kb-border: var(--kb-trilha);
+  --kb-branch: var(--kb-trilha);
+  --kb-brand: var(--kb-carimbo);
+  --kb-brand-fg: var(--kb-papel);
+  --kb-evidence: var(--kb-carimbo);
+  --kb-running: var(--kb-carimbo);
+  --kb-ok: var(--kb-oliva);
+  --kb-warn: var(--kb-ambar);
+  --kb-critical: var(--kb-lacre);
+  --kb-discarded: var(--kb-grafite);
+  --kb-ok-soft: rgba(47,122,79,.10);
+  --kb-warn-soft: rgba(138,95,0,.10);
+  --kb-critical-soft: rgba(179,54,47,.10);
+  --kb-brand-soft: rgba(76,63,166,.10);
+}
+
+[data-theme="dark"] {
+  --kb-bg: var(--kb-carvao);
+  --kb-surface: var(--kb-ardosia);
+  --kb-fg: var(--kb-giz);
+  --kb-fg-muted: var(--kb-grafite-claro);
+  --kb-border: var(--kb-trilha-escura);
+  --kb-branch: var(--kb-trilha-escura);
+  --kb-brand: var(--kb-carimbo-claro);
+  --kb-brand-fg: var(--kb-carvao);
+  --kb-evidence: var(--kb-carimbo-claro);
+  --kb-running: var(--kb-carimbo-claro);
+  --kb-ok: var(--kb-oliva-clara);
+  --kb-warn: var(--kb-ambar-claro);
+  --kb-critical: var(--kb-lacre-claro);
+  --kb-discarded: var(--kb-grafite-claro);
+  --kb-ok-soft: rgba(124,199,154,.12);
+  --kb-warn-soft: rgba(227,179,65,.12);
+  --kb-critical-soft: rgba(240,138,130,.12);
+  --kb-brand-soft: rgba(168,157,240,.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --kb-bg: var(--kb-carvao); --kb-surface: var(--kb-ardosia);
+    --kb-fg: var(--kb-giz); --kb-fg-muted: var(--kb-grafite-claro);
+    --kb-border: var(--kb-trilha-escura); --kb-branch: var(--kb-trilha-escura);
+    --kb-brand: var(--kb-carimbo-claro); --kb-brand-fg: var(--kb-carvao);
+    --kb-evidence: var(--kb-carimbo-claro); --kb-running: var(--kb-carimbo-claro);
+    --kb-ok: var(--kb-oliva-clara); --kb-warn: var(--kb-ambar-claro);
+    --kb-critical: var(--kb-lacre-claro); --kb-discarded: var(--kb-grafite-claro);
+    --kb-ok-soft: rgba(124,199,154,.12); --kb-warn-soft: rgba(227,179,65,.12);
+    --kb-critical-soft: rgba(240,138,130,.12); --kb-brand-soft: rgba(168,157,240,.12);
+  }
+}
+
+/* Movimento reduzido: nada pulsa, nada se desenha; estados trocam por corte. */
+@media (prefers-reduced-motion: reduce) {
+  :root { --kb-dur-micro: 0ms; --kb-dur-move: 0ms; --kb-dur-trace: 0ms; }
+}

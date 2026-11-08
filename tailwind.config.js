@@ -1,53 +1,33 @@
 /** @type {import('tailwindcss').Config} */
+// Cores = tokens semânticos do front do produto (src/styles/tokens.css). Tema claro (laudo) é o padrão.
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        canvas: '#0B0E14',
-        surface: {
-          subtle: '#101520',
-          elevated: '#161D2C',
-          overlay: '#1D263B',
-        },
-        border: {
-          subtle: '#1E2638',
-          medium: '#2A364F',
-          focus: '#38BDF8',
-        },
-        brand: {
-          indigo: '#4F46E5',
-          cyan: '#0284C7',
-          sky: '#38BDF8',
-          blue: '#2563EB',
-        },
-        status: {
-          ok: '#059669',
-          warn: '#D97706',
-          error: '#DC2626',
-          gov: '#7C3AED',
-        },
-        text: {
-          primary: '#F1F5F9',
-          secondary: '#94A3B8',
-          muted: '#64748B',
-        }
+        bg: "var(--kb-bg)",
+        surface: "var(--kb-surface)",
+        fg: "var(--kb-fg)",
+        muted: "var(--kb-fg-muted)",
+        line: "var(--kb-border)",
+        brand: "var(--kb-brand)",
+        "brand-fg": "var(--kb-brand-fg)",
+        "brand-soft": "var(--kb-brand-soft)",
+        ok: "var(--kb-ok)",
+        "ok-soft": "var(--kb-ok-soft)",
+        warn: "var(--kb-warn)",
+        "warn-soft": "var(--kb-warn-soft)",
+        critical: "var(--kb-critical)",
+        "critical-soft": "var(--kb-critical-soft)",
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+        display: ["Newsreader", "Georgia", "serif"],
+        sans: ["Instrument Sans", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
       },
-      boxShadow: {
-        'panel': '0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4)',
-        'console': '0 10px 30px -10px rgba(0, 0, 0, 0.7)',
-      },
-      animation: {
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      }
+      borderRadius: { tile: "12px" },
+      transitionTimingFunction: { trilha: "cubic-bezier(0.2, 0, 0, 1)" },
     },
   },
   plugins: [],
-}
+};

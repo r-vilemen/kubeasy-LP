@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96" role="img" aria-label="Símbolo Kubeasy">
+  <g fill="none" stroke="#E9E6DE" stroke-width="2.4" stroke-linecap="round">
+    <path d="M6 3 V21"/>
+    <path d="M6 13 L18 3"/>
+    <path d="M6 13 L17.31 20.92" stroke-dasharray="3 2.4"/>
+  </g>
+  <circle cx="18" cy="3" r="2.1" fill="#A89DF0"/>
+</svg>

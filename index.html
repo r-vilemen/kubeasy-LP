@@ -1,35 +1,36 @@
 <!doctype html>
-<html lang="pt-BR" class="dark scroll-smooth">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236366F1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>" />
+    <link rel="icon" type="image/svg+xml" href="/brand/kubeasy-simbolo-claro.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- SEO & Metadata Primário -->
-    <title>Kubeasy — Observabilidade, Investigação e Automação para Kubernetes</title>
-    <meta name="description" content="Plataforma de investigação estruturada de incidentes em Kubernetes com runtime multiagente, árvore determinística TreeStore e governança humana obrigatória." />
-    <meta name="keywords" content="Kubernetes, DevOps, SRE, Observabilidade, Prometheus, Loki, Istio, Incident Response, TreeStore, Multiagente, GitOps" />
+
+    <title>Kubeasy — Do alerta à causa, com a evidência citada</title>
+    <meta name="description" content="O Kubeasy investiga incidentes em Kubernetes, testa cada hipótese contra fatos e só muda produção com a sua aprovação. Menos abas, menos achismo, mais MTTR no verde." />
+    <meta name="keywords" content="Kubernetes, SRE, DevOps, incidentes, observabilidade, MTTR, GitOps, causa-raiz" />
     <meta name="author" content="Kubeasy" />
-    <meta name="theme-color" content="#090D16" />
+    <meta name="theme-color" content="#F2EFE8" />
 
-    <!-- Open Graph / Redes Sociais -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kubeasy.io/" />
-    <meta property="og:title" content="Kubeasy — Observabilidade, Investigação e Automação para Kubernetes" />
-    <meta property="og:description" content="Investigação estruturada de incidentes em Kubernetes com runtime multiagente, árvore determinística TreeStore e governança humana obrigatória." />
+    <meta property="og:title" content="Kubeasy — Do alerta à causa, com a evidência citada" />
+    <meta property="og:description" content="Investigação de incidentes em Kubernetes com hipóteses testadas contra fatos e mudança em produção só com aprovação humana." />
     <meta property="og:locale" content="pt_BR" />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kubeasy — Investigação Assistida para Kubernetes" />
-    <meta name="twitter:description" content="Reduza a fragmentação operacional entre logs, métricas e eventos com investigação determinística em árvore e remediação governada." />
 
-    <!-- Tipografia: Inter & JetBrains Mono -->
+    <script>
+      // aplica o tema antes da primeira pintura (evita flash)
+      try {
+        var t = localStorage.getItem("kb-theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-canvas text-text-primary font-sans antialiased selection:bg-brand-indigo/30 selection:text-white">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
