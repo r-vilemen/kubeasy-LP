@@ -1,4 +1,4 @@
-﻿import { Reveal, SectionHead } from "./common";
+﻿import { SectionHead } from "./common";
 import { useSectionProgress } from "../hooks/hooks";
 
 const wins = [
@@ -56,7 +56,7 @@ export function ProblemSection() {
                 <p className="mono text-[13px] text-brand mb-2" key={beat[1]} style={{ animation: "kb-in 300ms var(--kb-ease-trilha)" }}>{beat[1]}</p>
                 <p className="display text-[clamp(24px,3vw,34px)]" key={beat[2]} style={{ animation: "kb-in 360ms var(--kb-ease-trilha)" }}>{beat[2]}</p>
               </div>
-              <p className="mono text-[11.5px] text-muted mt-6">cena ilustrativa · role para acompanhar a madrugada</p>
+              <p className="mono text-[12px] text-muted mt-6">cena ilustrativa · role para acompanhar a madrugada</p>
             </div>
 
             <div className="relative h-[280px] sm:h-[420px] lg:h-[480px]" aria-hidden>
@@ -73,7 +73,7 @@ export function ProblemSection() {
                       boxShadow: "0 18px 30px -20px rgba(0,0,0,.7)",
                     }}
                   >
-                    <div className="flex items-center justify-between px-3 py-1.5 border-b border-line mono text-[11px] text-muted"><span>{w.name}</span><span>×</span></div>
+                    <div className="flex items-center justify-between px-3 py-1.5 border-b border-line mono text-[12px] text-muted"><span>{w.name}</span><span>×</span></div>
                     <div className="px-3 py-3 mono text-[12px] space-y-1.5">{w.body.map((l) => <p key={l} className="text-fg">{l}</p>)}</div>
                   </div>
                 );
@@ -87,22 +87,17 @@ export function ProblemSection() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 pb-24 lg:pb-32">
-        <Reveal className="mb-10"><p className="display text-[clamp(26px,3.4vw,40px)] max-w-3xl">Fragmentação operacional custa em <span className="mark italic">três moedas</span>:</p></Reveal>
-        <div className="grid md:grid-cols-3 gap-5">
+        <p className="display text-[clamp(28px,3.6vw,44px)] max-w-[22ch] mb-12">Fragmentação operacional custa em três moedas.</p>
+        <ol className="rule-list border-y border-line">
           {pains.map((x, i) => (
-            <Reveal key={x.t} delay={i * 110}>
-              <article className="card card-lift p-7 h-full">
-                <p className="label !text-critical mb-4">{x.k}</p>
-                <h3 className="display text-[26px] mb-3">{x.t}</h3>
-                <p className="text-muted leading-relaxed">{x.d}</p>
-              </article>
-            </Reveal>
+            <li key={x.t} className="grid md:grid-cols-[160px_minmax(0,1fr)_minmax(0,1.1fr)] gap-x-8 gap-y-3 py-8">
+              <span className="mono text-[13px] text-critical">{String(i + 1).padStart(2, "0")} · {x.k}</span>
+              <h3 className="display text-[clamp(26px,3vw,36px)]">{x.t}</h3>
+              <p className="text-muted leading-relaxed max-w-[48ch]">{x.d}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
 }
-
-
-
