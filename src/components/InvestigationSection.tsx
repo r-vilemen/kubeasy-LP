@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import { SectionHead, Reveal } from "./common";
 
 type H = { t: string; fact: string; ok: boolean };
@@ -74,7 +74,7 @@ export function InvestigationSection() {
                   <pre className="mono text-[12px] p-3 rounded border border-line bg-bg overflow-x-auto" style={{ margin: 0 }}>
                     <span style={{ color: "var(--kb-critical)" }}>- {sc.diff[0]}</span>{"\n"}<span style={{ color: "var(--kb-ok)" }}>+ {sc.diff[1]}</span>
                   </pre>
-                  <p className="mono text-[12px] mt-3" style={{ color: "var(--kb-warn)" }}>● aguardando aprovação do {sc.approver}</p>
+                  <p className="mono text-[12px] mt-3" style={{ color: "var(--kb-warn)" }}>aguardando aprovação do {sc.approver}</p>
                 </div>
               </div>
               <ul className="space-y-3">
@@ -83,9 +83,7 @@ export function InvestigationSection() {
                   const done = step >= i + 2 || step >= 4;
                   return (
                     <li key={h.t} className="flex gap-4 p-4 border rounded transition-all duration-500" style={{ opacity: shown ? 1 : 0.15, transform: shown ? "none" : "translateX(16px)", borderColor: done && h.ok ? "var(--kb-ok)" : "var(--kb-border)", background: done && h.ok ? "var(--kb-ok-soft)" : "transparent", borderStyle: done && !h.ok ? "dashed" : "solid" }}>
-                      <span className="mt-1 w-5 h-5 shrink-0 rounded-full grid place-items-center text-[11px] mono" style={{ background: done ? (h.ok ? "var(--kb-ok)" : "transparent") : "var(--kb-brand-soft)", border: done && !h.ok ? "1.4px dashed var(--kb-discarded)" : "none", color: h.ok ? "var(--kb-bg)" : "var(--kb-discarded)" }}>
-                        {done ? (h.ok ? "✓" : "✕") : shown ? "…" : ""}
-                      </span>
+                      <span className="mt-0.5 w-5 shrink-0 text-center mono text-[15px] font-semibold" style={{ color: done ? (h.ok ? "var(--kb-ok)" : "var(--kb-discarded)") : "var(--kb-brand)" }}>{done ? (h.ok ? "✓" : "✕") : shown ? "…" : ""}</span>
                       <div>
                         <p className={`font-semibold ${done && !h.ok ? "strike" : ""}`}>{h.t}</p>
                         <p className="mono text-[12.5px] text-muted mt-1">{done ? h.fact : "testando contra os fatos do cluster…"}</p>
@@ -101,3 +99,5 @@ export function InvestigationSection() {
     </section>
   );
 }
+
+

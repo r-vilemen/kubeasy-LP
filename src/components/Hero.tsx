@@ -23,7 +23,7 @@ function Laudo() {
   return (
     <div className="card relative overflow-hidden" style={{ boxShadow: "0 28px 50px -26px rgba(18,20,22,.35), 0 2px 6px -2px rgba(18,20,22,.12)" }}>
       <div className="flex items-center justify-between px-5 py-3 border-b border-line mono text-[12px] text-muted">
-        <span className="flex items-center gap-2"><span className="pulse-dot" /> laudo · orders-api · prod</span>
+        <span>laudo · orders-api · prod</span>
         <button onClick={play} className="ulink hover:text-fg" aria-label="Repetir a investigação">↻ repetir</button>
       </div>
       <svg viewBox="0 0 520 300" className={`block w-full h-auto px-2 pt-3 ${on ? "on" : ""}`} aria-label="Investigação: sintoma, causa confirmada e hipótese descartada">
@@ -79,7 +79,7 @@ export function Hero() {
       <div aria-hidden className="absolute inset-y-0 left-[max(20px,calc(50%-560px))] w-px bg-line opacity-60 hidden md:block" />
       <div className="mx-auto max-w-6xl px-5 grid lg:grid-cols-[1.05fr_1fr] gap-14 items-center">
         <div>
-          <p className="label reveal in mb-6 flex items-center gap-3"><span className="inline-block w-2 h-2 rounded-full bg-brand" /> Para quem está de plantão em Kubernetes</p>
+          <p className="label reveal in mb-6 flex items-center gap-3"><span className="h-px w-8 bg-brand" /> Para quem está de plantão em Kubernetes</p>
           <h1 className="display reveal in text-[clamp(44px,6.6vw,84px)]" style={{ ["--d" as string]: "80ms" } as React.CSSProperties}>
             Do alerta à causa, com a <span className="mark in italic">evidência citada.</span>
           </h1>
@@ -106,4 +106,5 @@ export function Hero() {
     </section>
   );
 }
+
 

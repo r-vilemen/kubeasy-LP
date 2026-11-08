@@ -23,7 +23,7 @@ export function IntegrationsSection() {
                 <p className="label mb-4">{g}</p>
                 <ul className="space-y-2">
                   {items.map((t) => (
-                    <li key={t} className="mono text-[14px] flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand transition-transform group-hover:scale-150" />{t}</li>
+                    <li key={t} className="mono text-[14px] transition-transform duration-200 hover:translate-x-1">{t}</li>
                   ))}
                 </ul>
               </div>
@@ -85,5 +85,6 @@ export function CostSection() {
     </section>
   );
 }
+
 
 

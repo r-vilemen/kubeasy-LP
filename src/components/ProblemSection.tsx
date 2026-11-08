@@ -47,9 +47,9 @@ export function ProblemSection() {
             <div>
               <div className="mono flex items-baseline gap-4">
                 <span className="text-[clamp(52px,10vw,128px)] leading-none font-medium tabular-nums" style={{ color: late ? "var(--kb-critical)" : "var(--kb-fg)", transition: "color 300ms" }}>{clock(p)}</span>
-                <span className="label flex items-center gap-2"><span className="pulse-dot" /> incidente aberto</span>
+                <span className="label" style={{ color: "var(--kb-critical)" }}>incidente aberto</span>
               </div>
-              <div className="mt-6 h-1.5 w-full max-w-sm bg-line rounded-full overflow-hidden" aria-hidden>
+              <div className="mt-6 h-1.5 w-full max-w-sm bg-line overflow-hidden" aria-hidden>
                 <div className="h-full" style={{ width: `${p * 100}%`, background: late ? "var(--kb-critical)" : "var(--kb-brand)" }} />
               </div>
               <div className="mt-4 lg:mt-8 min-h-[100px] lg:min-h-[120px]" aria-live="polite">
@@ -73,7 +73,7 @@ export function ProblemSection() {
                       boxShadow: "0 18px 30px -20px rgba(0,0,0,.7)",
                     }}
                   >
-                    <div className="flex items-center justify-between px-3 py-1.5 border-b border-line mono text-[11px] text-muted"><span>{w.name}</span><span>● ● ●</span></div>
+                    <div className="flex items-center justify-between px-3 py-1.5 border-b border-line mono text-[11px] text-muted"><span>{w.name}</span><span>×</span></div>
                     <div className="px-3 py-3 mono text-[12px] space-y-1.5">{w.body.map((l) => <p key={l} className="text-fg">{l}</p>)}</div>
                   </div>
                 );
@@ -103,5 +103,6 @@ export function ProblemSection() {
     </section>
   );
 }
+
 
 

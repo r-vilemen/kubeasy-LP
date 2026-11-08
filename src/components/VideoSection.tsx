@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+﻿import { useRef, useState } from "react";
 import { Reveal, SectionHead } from "./common";
 
 /**
@@ -49,7 +49,7 @@ export function VideoSection() {
                   </g>
                   {[0, 1, 2, 3, 4, 5].map((i) => <circle key={i} cx={130 + i * 130} cy={200 - (i % 2) * 50} r="5" fill="var(--kb-brand)" opacity=".7" />)}
                 </svg>
-                <span className="relative grid place-items-center w-24 h-24 rounded-full bg-brand text-brand-fg transition-transform duration-300 group-hover:scale-110" style={{ boxShadow: "5px 5px 0 var(--kb-fg)" }}>
+                <span className="relative grid place-items-center w-24 h-24 rounded bg-brand text-brand-fg transition-transform duration-300 group-hover:scale-110" style={{ boxShadow: "5px 5px 0 var(--kb-fg)" }}>
                   <svg width="30" height="30" viewBox="0 0 14 14" aria-hidden><path d="M3.5 1.5v11l9-5.5z" fill="currentColor" /></svg>
                 </span>
                 <span className="relative mt-6 label">{hasVideo ? "Assistir · 2 min" : "O vídeo da demonstração entra aqui"}</span>
@@ -61,4 +61,5 @@ export function VideoSection() {
     </section>
   );
 }
+
 
