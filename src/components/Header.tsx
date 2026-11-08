@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import { Arrow, Logo } from "./common";
 import { useScrollY, useTheme } from "../hooks/hooks";
 import { LOGIN_URL, SIGNUP_URL } from "../config";
@@ -12,7 +12,8 @@ const links = [
 ] as const;
 
 export function Header() {
-  const { y, pct } = useScrollY();
+  const bar = useRef<HTMLDivElement>(null);
+  const scrolled = useScrollY(bar);
   const [theme, toggle] = useTheme();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
@@ -27,15 +28,13 @@ export function Header() {
     return () => io.disconnect();
   }, []);
 
-  const scrolled = y > 24;
   return (
     <>
-      <div className="scroll-line" style={{ transform: `scaleX(${pct})` }} aria-hidden />
+      <div ref={bar} className="scroll-line" style={{ transform: "scaleX(0)" }} aria-hidden />
       <header
-        className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
+        className="fixed top-0 inset-x-0 z-50 transition-[background-color,border-color] duration-300"
         style={{
-          background: scrolled || open ? "color-mix(in srgb, var(--kb-bg) 92%, transparent)" : "transparent",
-          backdropFilter: scrolled ? "blur(10px)" : "none",
+          background: scrolled || open ? "var(--kb-bg)" : "transparent",
           borderBottom: `1px solid ${scrolled ? "var(--kb-border)" : "transparent"}`,
         }}
       >
@@ -77,5 +76,6 @@ export function Header() {
     </>
   );
 }
+
 
 

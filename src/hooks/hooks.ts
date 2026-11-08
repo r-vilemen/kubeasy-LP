@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+﻿import { useCallback, useEffect, useRef, useState } from "react";
 
 /** true quando o elemento entra na viewport (uma vez, ou sempre se `once=false`). */
 export function useInView<T extends Element>(opts: { once?: boolean; threshold?: number; margin?: string } = {}) {
@@ -32,7 +32,9 @@ export function useSectionProgress<T extends HTMLElement>() {
       if (!el) return;
       const r = el.getBoundingClientRect();
       const total = r.height - window.innerHeight;
-      setP(total <= 0 ? 0 : Math.min(1, Math.max(0, -r.top / total)));
+      const v = total <= 0 ? 0 : Math.min(1, Math.max(0, -r.top / total));
+      const q = Math.round(v * 500) / 500;
+      setP((old) => (old === q ? old : q));
     };
     const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(calc); };
     calc();
@@ -43,22 +45,26 @@ export function useSectionProgress<T extends HTMLElement>() {
   return [ref, p] as const;
 }
 
-export function useScrollY() {
-  const [y, setY] = useState(0);
-  const [pct, setPct] = useState(0);
+/** Rolagem sem re-render por evento: a barra é atualizada direto no DOM; só `scrolled` vira estado (e só ao mudar). */
+export function useScrollY(barRef: { current: HTMLElement | null }, threshold = 24) {
+  const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    const on = () => {
-      setY(window.scrollY);
+    let raf = 0;
+    const frame = () => {
+      raf = 0;
+      const y = window.scrollY;
       const h = document.documentElement.scrollHeight - window.innerHeight;
-      setPct(h > 0 ? window.scrollY / h : 0);
+      if (barRef.current) barRef.current.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
+      setScrolled(y > threshold);
     };
-    on();
+    const on = () => { if (!raf) raf = requestAnimationFrame(frame); };
+    frame();
     window.addEventListener("scroll", on, { passive: true });
-    return () => window.removeEventListener("scroll", on);
-  }, []);
-  return { y, pct };
+    window.addEventListener("resize", on);
+    return () => { cancelAnimationFrame(raf); window.removeEventListener("scroll", on); window.removeEventListener("resize", on); };
+  }, [barRef, threshold]);
+  return scrolled;
 }
-
 export function useTheme() {
   const [theme, setTheme] = useState<"light" | "dark">(
     () => (document.documentElement.getAttribute("data-theme") as "light" | "dark") || "light",
@@ -93,4 +99,5 @@ export function useCountUp(to: number, ms = 700) {
   }, [to, ms]);
   return v;
 }
+
 
