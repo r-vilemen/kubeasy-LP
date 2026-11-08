@@ -33,10 +33,9 @@ body {
 .label { font-family: var(--kb-font-mono); font-size: 12px; letter-spacing: var(--kb-tracking-label); text-transform: uppercase; color: var(--kb-fg-muted); }
 .mono { font-family: var(--kb-font-mono); letter-spacing: .02em; }
 
-/* revelar ao rolar */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 600ms var(--kb-ease-trilha) var(--d, 0ms), transform 600ms var(--kb-ease-trilha) var(--d, 0ms); }
-.reveal.in { opacity: 1; transform: none; }
-
+/* ÚNICO ponto de movimento coreografado: a abertura da Hero (texto escalonado + laudo se desenhando) */
+.enter { opacity: 0; transform: translateY(12px); animation: enter 700ms var(--kb-ease-trilha) var(--d, 0ms) forwards; }
+@keyframes enter { to { opacity: 1; transform: none; } }
 /* traço de ramo desenhado */
 .trace { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); transition: stroke-dashoffset var(--kb-dur-trace) var(--kb-ease-trilha) var(--d, 0ms); }
 .on .trace, .trace.on { stroke-dashoffset: 0; }
@@ -45,36 +44,30 @@ body {
 .fade-in { opacity: 0; transition: opacity 400ms var(--kb-ease-trilha) var(--d, 0ms); }
 .on .fade-in, .fade-in.on { opacity: 1; }
 
-/* botão-carimbo: sombra rígida que "assenta" ao pressionar */
-.btn { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; font-weight: 600; font-size: 15px; border: 1.4px solid var(--kb-fg); border-radius: 4px; cursor: pointer; transition: transform var(--kb-dur-micro) var(--kb-ease-trilha), box-shadow var(--kb-dur-micro) var(--kb-ease-trilha), background-color var(--kb-dur-micro); white-space: nowrap; }
-.btn-primary { background: var(--kb-brand); color: var(--kb-brand-fg); border-color: var(--kb-brand); box-shadow: 4px 4px 0 var(--kb-fg); }
-.btn-primary:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--kb-fg); }
-.btn-primary:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--kb-fg); }
+/* botões: planos, raio 2px (mesmo raio dos controles do produto), foco e hover sem enfeite */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 14px 24px; font-weight: 600; font-size: 15px; line-height: 1; border: 1.4px solid var(--kb-fg); border-radius: var(--kb-radius-sm); cursor: pointer; transition: background-color var(--kb-dur-micro) var(--kb-ease-trilha), color var(--kb-dur-micro) var(--kb-ease-trilha), transform var(--kb-dur-micro) var(--kb-ease-trilha); white-space: nowrap; }
+.btn-primary { background: var(--kb-fg); color: var(--kb-bg); }
+.btn-primary:hover { background: var(--kb-brand); border-color: var(--kb-brand); color: var(--kb-brand-fg); }
+.btn-primary:active { transform: translateY(1px); }
 .btn-ghost { background: transparent; color: var(--kb-fg); }
 .btn-ghost:hover { background: var(--kb-fg); color: var(--kb-bg); }
-.btn .arrow { transition: transform var(--kb-dur-move) var(--kb-ease-trilha); }
-.btn:hover .arrow { transform: translateX(4px); }
-
+.btn svg { transition: transform var(--kb-dur-move) var(--kb-ease-trilha); }
+.btn:hover svg { transform: translateX(3px); }
 /* link com sublinhado que se desenha */
 .ulink { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.4px no-repeat; transition: background-size var(--kb-dur-move) var(--kb-ease-trilha); padding-bottom: 2px; }
 .ulink:hover, .ulink.active { background-size: 100% 1.4px; }
 
 /* marca-texto de laudo sob palavras-chave */
-.mark { background: linear-gradient(var(--kb-brand-soft), var(--kb-brand-soft)) 0 88% / 0 .42em no-repeat; transition: background-size 900ms var(--kb-ease-trilha) 400ms; }
-.in .mark, .mark.in { background-size: 100% .42em; }
+.mark { background: linear-gradient(var(--kb-brand-soft), var(--kb-brand-soft)) 0 88% / 100% .42em no-repeat; }
+
 .strike { text-decoration: line-through; text-decoration-style: dashed; text-decoration-thickness: 1.4px; color: var(--kb-discarded); }
 
-/* cartões */
-.card { background: var(--kb-surface); border: 1px solid var(--kb-border); border-radius: var(--kb-radius-tile); transition: transform var(--kb-dur-move) var(--kb-ease-trilha), border-color var(--kb-dur-micro), box-shadow var(--kb-dur-move) var(--kb-ease-trilha); }
-.card-lift:hover { transform: translateY(-4px); border-color: var(--kb-fg); box-shadow: 0 18px 30px -22px rgba(18,20,22,.45); }
-
+/* painéis: um único raio (2px), sem sombra decorativa; o que é "documento" ganha só borda */
+.card { background: var(--kb-surface); border: 1px solid var(--kb-border); border-radius: var(--kb-radius-sm); }
+.rule-list > * + * { border-top: 1px solid var(--kb-border); }
 /* cursor piscando / pulso de status */
 @keyframes blink { 50% { opacity: 0; } }
 .caret::after { content: "▍"; animation: blink 1s steps(1) infinite; margin-left: 2px; color: var(--kb-brand); }
-@keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 var(--kb-critical); } 80%, 100% { box-shadow: 0 0 0 8px transparent; } }
-.pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--kb-critical); animation: pulse-ring 1.8s infinite; }
-@keyframes drop { from { opacity: 0; transform: translateY(-40px) rotate(var(--r0, 0deg)); } to { opacity: 1; transform: translateY(0) rotate(var(--r, 0deg)); } }
-@keyframes marquee { to { transform: translateX(-50%); } }
 @keyframes stamp { 0% { opacity: 0; transform: scale(2.2) rotate(-10deg); } 60% { opacity: 1; transform: scale(.94) rotate(-4deg); } 100% { opacity: 1; transform: scale(1) rotate(-4deg); } }
 .stamp { animation: stamp 420ms cubic-bezier(.2,.9,.3,1.2) forwards; }
 
@@ -82,7 +75,7 @@ body {
 .scroll-line { will-change: transform; position: fixed; top: 0; left: 0; height: 3px; background: var(--kb-brand); transform-origin: 0 50%; z-index: 60; }
 
 input, select, textarea { font: inherit; color: inherit; }
-.field { width: 100%; padding: 12px 14px; background: var(--kb-surface); border: 1.4px solid var(--kb-border); border-radius: 4px; transition: border-color var(--kb-dur-micro), box-shadow var(--kb-dur-micro); }
+.field { width: 100%; padding: 12px 14px; background: var(--kb-surface); border: 1.4px solid var(--kb-border); border-radius: 2px; transition: border-color var(--kb-dur-micro), box-shadow var(--kb-dur-micro); }
 .field:hover { border-color: var(--kb-fg-muted); }
 .field:focus { outline: none; border-color: var(--kb-brand); box-shadow: 0 0 0 3px var(--kb-brand-soft); }
 
@@ -90,7 +83,9 @@ input[type=range] { accent-color: var(--kb-brand); width: 100%; cursor: grab; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0ms !important; scroll-behavior: auto !important; }
-  .reveal, .fade-in, .node-pop { opacity: 1; transform: none; }
+  .enter, .fade-in, .node-pop { opacity: 1; transform: none; }
   .trace { stroke-dashoffset: 0; }
 }
+
+
 

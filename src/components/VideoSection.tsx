@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { Reveal, SectionHead } from "./common";
+﻿import { useRef, useState } from "react";
+import { Play, SectionHead } from "./common";
 
 /**
  * VÍDEO — para adicionar depois: coloque o arquivo em /public/video/demo.mp4
@@ -14,23 +14,18 @@ export function VideoSection() {
   const [playing, setPlaying] = useState(false);
   const vref = useRef<HTMLVideoElement>(null);
   const hasVideo = Boolean(VIDEO_SRC || EMBED_URL);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
+  
   const play = () => { setPlaying(true); requestAnimationFrame(() => vref.current?.play()); };
 
   return (
     <section id="video" className="py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <SectionHead n="00" label="Demonstração" title={<>Uma investigação, <em>do alerta ao diff</em>, em poucos minutos.</>} lead="Veja o Kubeasy abrir um alerta, descartar hipóteses com fatos e propor a mudança para você aprovar." />
-        <Reveal className="mt-12">
+        <div className="mt-16 md:pl-[192px]">
           <div
             className="relative card overflow-hidden aspect-video group"
-            style={{ transform: `perspective(1200px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)`, transition: "transform 200ms var(--kb-ease-trilha)", boxShadow: "0 40px 70px -40px rgba(18,20,22,.5)" }}
-            onMouseMove={(e) => {
-              const r = e.currentTarget.getBoundingClientRect();
-              setTilt({ x: ((e.clientX - r.left) / r.width - 0.5) * 3, y: -((e.clientY - r.top) / r.height - 0.5) * 3 });
-            }}
-            onMouseLeave={() => setTilt({ x: 0, y: 0 })}
+            style={{ borderRadius: 2 }}
+            
           >
             <div className="absolute top-0 inset-x-0 z-10 flex items-center justify-between px-5 py-3 border-b border-line bg-surface mono text-[12px] text-muted">
               <span>demo · incidente orders-api</span><span>{hasVideo ? "00:00" : "em breve"}</span>
@@ -49,16 +44,16 @@ export function VideoSection() {
                   </g>
                   {[0, 1, 2, 3, 4, 5].map((i) => <circle key={i} cx={130 + i * 130} cy={200 - (i % 2) * 50} r="5" fill="var(--kb-brand)" opacity=".7" />)}
                 </svg>
-                <span className="relative grid place-items-center w-24 h-24 rounded-full bg-brand text-brand-fg transition-transform duration-300 group-hover:scale-110" style={{ boxShadow: "5px 5px 0 var(--kb-fg)" }}>
-                  <svg width="30" height="30" viewBox="0 0 14 14" aria-hidden><path d="M3.5 1.5v11l9-5.5z" fill="currentColor" /></svg>
-                </span>
+                <span className="relative grid place-items-center w-20 h-20 bg-fg text-bg transition-colors duration-200 group-hover:bg-brand group-hover:text-brand-fg" style={{ borderRadius: 2 }}><Play /></span>
                 <span className="relative mt-6 label">{hasVideo ? "Assistir · 2 min" : "O vídeo da demonstração entra aqui"}</span>
               </button>
             )}
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
 }
+
+
 
