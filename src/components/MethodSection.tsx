@@ -1,4 +1,4 @@
-import { SectionHead } from "./common";
+﻿import { SectionHead } from "./common";
 import { useSectionProgress } from "../hooks/hooks";
 
 const steps = [
@@ -23,8 +23,8 @@ export function MethodSection() {
 
       <div ref={ref} style={{ height: "380vh" }} className="relative">
         <div className="sticky top-0 h-screen flex items-center">
-          <div className="mx-auto max-w-6xl w-full px-5 grid lg:grid-cols-[.85fr_1.15fr] gap-10 items-center pt-10">
-            <ol className="space-y-2">
+          <div className="mx-auto max-w-6xl w-full px-5 grid lg:grid-cols-[.85fr_1.15fr] gap-4 lg:gap-10 items-center pt-16 lg:pt-10">
+            <ol className="space-y-1 lg:space-y-2 order-2 lg:order-1">
               {steps.map((x, i) => {
                 const a = i === active;
                 const done = i < active;
@@ -33,14 +33,14 @@ export function MethodSection() {
                     <a
                       href="#metodo"
                       onClick={(e) => { e.preventDefault(); const el = ref.current; if (!el) return; window.scrollTo({ top: el.offsetTop + (i / 5 + 0.02) * (el.offsetHeight - window.innerHeight), behavior: "smooth" }); }}
-                      className="flex gap-4 p-4 rounded border transition-all duration-300"
+                      className="flex gap-3 lg:gap-4 p-2.5 lg:p-4 rounded border transition-all duration-300"
                       style={{ borderColor: a ? "var(--kb-fg)" : "transparent", background: a ? "var(--kb-surface)" : "transparent", opacity: a ? 1 : done ? 0.75 : 0.45 }}
                     >
                       <span className="mono text-[13px] w-7 h-7 shrink-0 grid place-items-center rounded-full border transition-colors" style={{ background: a || done ? "var(--kb-brand)" : "transparent", color: a || done ? "var(--kb-brand-fg)" : "var(--kb-fg-muted)", borderColor: a || done ? "var(--kb-brand)" : "var(--kb-border)" }}>
                         {done ? "✓" : i + 1}
                       </span>
                       <span>
-                        <span className="display text-[22px] block">{x.t}</span>
+                        <span className="display text-[18px] lg:text-[22px] block">{x.t}</span>
                         <span className="text-muted leading-relaxed block overflow-hidden transition-all duration-500" style={{ maxHeight: a ? 120 : 0, opacity: a ? 1 : 0, marginTop: a ? 6 : 0 }}>{x.d}</span>
                       </span>
                     </a>
@@ -49,7 +49,7 @@ export function MethodSection() {
               })}
             </ol>
 
-            <div className="card overflow-hidden">
+            <div className="card overflow-hidden order-1 lg:order-2">
               <div className="flex justify-between px-5 py-3 border-b border-line mono text-[12px] text-muted"><span>método · passo {s} de 5</span><span>{steps[active].t.toLowerCase()}</span></div>
               <svg viewBox="0 0 560 380" className="block w-full h-auto" role="img" aria-label="Árvore de investigação sendo construída passo a passo">
                 {/* 1 · haste + sinais */}
@@ -119,3 +119,4 @@ export function MethodSection() {
     </section>
   );
 }
+

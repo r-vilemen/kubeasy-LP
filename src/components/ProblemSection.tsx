@@ -1,4 +1,4 @@
-import { Reveal, SectionHead } from "./common";
+﻿import { Reveal, SectionHead } from "./common";
 import { useSectionProgress } from "../hooks/hooks";
 
 const wins = [
@@ -46,20 +46,20 @@ export function ProblemSection() {
           <div className="mx-auto max-w-6xl w-full px-5 grid lg:grid-cols-[.9fr_1.1fr] gap-10 items-center">
             <div>
               <div className="mono flex items-baseline gap-4">
-                <span className="text-[clamp(64px,10vw,128px)] leading-none font-medium tabular-nums" style={{ color: late ? "var(--kb-critical)" : "var(--kb-fg)", transition: "color 300ms" }}>{clock(p)}</span>
+                <span className="text-[clamp(52px,10vw,128px)] leading-none font-medium tabular-nums" style={{ color: late ? "var(--kb-critical)" : "var(--kb-fg)", transition: "color 300ms" }}>{clock(p)}</span>
                 <span className="label flex items-center gap-2"><span className="pulse-dot" /> incidente aberto</span>
               </div>
               <div className="mt-6 h-1.5 w-full max-w-sm bg-line rounded-full overflow-hidden" aria-hidden>
                 <div className="h-full" style={{ width: `${p * 100}%`, background: late ? "var(--kb-critical)" : "var(--kb-brand)" }} />
               </div>
-              <div className="mt-8 min-h-[120px]" aria-live="polite">
+              <div className="mt-4 lg:mt-8 min-h-[100px] lg:min-h-[120px]" aria-live="polite">
                 <p className="mono text-[13px] text-brand mb-2" key={beat[1]} style={{ animation: "kb-in 300ms var(--kb-ease-trilha)" }}>{beat[1]}</p>
                 <p className="display text-[clamp(24px,3vw,34px)]" key={beat[2]} style={{ animation: "kb-in 360ms var(--kb-ease-trilha)" }}>{beat[2]}</p>
               </div>
               <p className="mono text-[11.5px] text-muted mt-6">cena ilustrativa · role para acompanhar a madrugada</p>
             </div>
 
-            <div className="relative h-[420px] sm:h-[480px]" aria-hidden>
+            <div className="relative h-[280px] sm:h-[420px] lg:h-[480px]" aria-hidden>
               {wins.map((w) => {
                 const shown = p >= w.at;
                 return (
@@ -103,4 +103,5 @@ export function ProblemSection() {
     </section>
   );
 }
+
 
